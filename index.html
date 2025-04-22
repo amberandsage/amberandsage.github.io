@@ -38,20 +38,38 @@
                 a.appendChild(r);
             })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
         </script>
+
+        <script>window.Mangomint = window.Mangomint || {}; window.Mangomint.CompanyId = 101649;</script>
+        <script src="https://booking.mangomint.com/app.js" async></script>
+
+          <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding-top: 100px;
+      background: #f0f0f0;
+    }
+    #countdown {
+      font-size: 2rem;
+      color: #333;
+    }
+  </style>
     </head>
     <body id="page-top">
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
             <div class="container">
-                <a class="navbar-brand" href="#page-top">Amber & Sage Spa</a>
+                <a class="navbar-brand" href="#page-top"><img src='assets/img/as_logo.png'>
+                Amber & Sage Spa</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars ms-1"></i>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="sms:+14235374221"><img src='assets/img/text.png' width='100'></a></li>
-                        <li class="nav-item"><a class="nav-link" href="#booking">Booking</a></li>
+                        <li class="nav-item"><a class="nav-link" href="https://booking.mangomint.com/101649"><img src='assets/img/book_now.png' width='100'></a></li>
+                        <li class="nav-item"><a class="nav-link" href="sms:+423-537-4221"><img src='assets/img/text.png' width='100'></a></li>
+                        <li class="nav-item"><a class="nav-link" href="#booking">About</a></li>
                         <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
                         <!-- <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li> -->
                         <!-- <li class="nav-item"><a class="nav-link" href="#about">About</a></li> -->
@@ -68,9 +86,39 @@
         <header class="masthead">
             <div class="container">
                 <div class="col-lg-12">
-                <h3 class="section-heading text-uppercase text-muted">Coming soon!</h3>
-                <h4 class="section-heading text-uppercase text-muted">Scan below to save our contact info!</h4>
-                <img src="assets/img/as-qr-code.png" alt="..." width="35%"/>
+                <h2 class="section-heading text-uppercase text-muted" style="color: white; text-shadow: 2px 2px 4px rgba(255,255,255,0.9);">Opening day (May 7th) is in...</h2>
+                  <h4 class="section-heading text-uppercase text-muted" id="countdown" style="color: white; text-shadow: 2px 2px 4px rgba(255,255,255,0.9);"></h4>
+
+                    <img src='assets/img/as_logo.png' width='200px'>
+                  <script>
+    const countdownElement = document.getElementById("countdown");
+    const targetDate = new Date("May 7, 2025 00:00:00").getTime();
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const timeLeft = targetDate - now;
+
+      if (timeLeft <= 0) {
+        countdownElement.innerHTML = "It's Opening Day!!";
+        clearInterval(timer);
+        return;
+      }
+
+      const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+      countdownElement.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }
+
+    const timer = setInterval(updateCountdown, 1000);
+    updateCountdown(); // initial call
+  </script>
+                <!-- <h4 class="section-heading text-uppercase text-muted">Scan below to save our contact info!</h4> -->
+                <!-- <img src="assets/img/as-qr-code.png" alt="..." width="35%"/> -->
+                <a class="nav-link" href="sms:+423-537-4221"><img src='assets/img/text.png' width='300'></a>
+                <a class="nav-link" href="https://booking.mangomint.com/101649"><img src='assets/img/book_now.png' width='300'></a>
                 </div>
 
 <!--                 <div class="col-sm-12">
@@ -85,6 +133,9 @@
             </div>
         </header>
 
+
+
+
         <!-- Team-->
         <section class="page-section bg-light" id="booking">
             <div class="container">
@@ -93,20 +144,29 @@
                     <!-- <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3> -->
                 </div>
                 <div class="row">
-                    <div class="col-lg-8 mx-auto text-center"><p class="large text-muted"><b>Amber & Sage Spa and Boutique</b> is taking over the spa formally known as Natural Body. We are going to have a fresh look and new owners but offer the same amazing services from some of the same great therapists. We will continue to be utilizing premium <a href="https://eminenceorganics.com/us" class="link-dark">Eminence Organic Skin Care</a> in our services.</p>
+                    <div class="col-lg-8 mx-auto text-center"><p class="large text-muted"><b>Amber & Sage Spa and (soon-to-be) Boutique</b> is taking over the day spa formally known as <i>Natural Body</i>. We are going to have a fresh look and new owners but offer the same amazing services from some of the same great therapists (and some new ones too!). As well as several new and exciting services never offered here before!</p>
 
-                    <p class="large text-muted"><b>Online booking</b> will be coming soon as we transition to a "by-appointment-only" model, but don't worry, we will have plenty of time and services avilable and the booking process and experience will be easier than ever.</p>
+                        <p class="large text-muted">We will <b>continue</b> to be utilizing premium <a href="https://eminenceorganics.com/us" class="link-dark">Eminence Organic Skin Care</a> in our services.</p>
 
-                    <p class="large text-muted">Our <b>exclusive boutique</b> will be publicly open on weekends and will be an evolving carefully curated collection of "clean" <i>and</i> effective beauty, skincare, wellness, and lifestyle products.</p>
+                    <p class="large text-muted">Our <b>exclusive boutique</b> will soon be publicly open on weekends (at first) and will be an evolving and carefully curated collection of "clean" <i>and</i> effective beauty, skincare, wellness, and lifestyle products.</p>
+
+                    <p class="large text-muted">In the mean time, we will be conducting our day spa services via a <b>by appointment only</b> model during our ramp up phase. This will allow us to ramp up quickly and efficiently while being able to offer maximum flexibility in appointment times. Don't see a time that works for you? Text us or join the waitlist and we will do everything we can to accommodate your schedule!</p>
 
                     <p class="large text-muted">We really <b>appreciate</b> your patience during our transition and genuinely hope we can look forward to your continued support throughout this process.</p>
 
-                    <p class="large text-muted">Be sure to fill out our <a href="#contact" class="link-dark">contact form</a> to stay up-to-date with booking availablity updates, opening dates, promotions, and more!</p>
+                    <p class="large text-muted">Be sure to fill out our <a href="#contact" class="link-dark">contact form</a> to <b>stay up-to-date</b> with booking availablity updates, opening dates, promotions, and more!</p>
 
-                    <p class="large text-muted">⭐⭐⭐⭐⭐ If you're excited for us to open and can't wait to book a service, please <a href="https://g.page/r/CfWafetLZwxKECA/review" class="link-dark">leave us a 5 star review on Google</a> to let us know! ⭐⭐⭐⭐⭐</p>
+                    <p class="large text-muted">⭐⭐⭐⭐⭐</p>
 
-                    <p class="large text-muted">You can send us a message with any questions at any time!</p>
-                    <a class="nav-link" href="sms:+14235374221"><img src='assets/img/text.png' width='200'></a>
+                    <p class="large text-muted"> If you're <b>excited for us</b>, please <a href="https://g.page/r/CfWafetLZwxKECA/review" class="link-dark">leave us a 5 star review on Google</a> to let us know!</p>
+                     <p class="large text-muted">⭐⭐⭐⭐⭐</p>
+
+
+                    <p class="large text-muted">You can send us a message with booking requests or any questions at any time!</p>
+                    <a class="nav-link" href="sms:+423-537-4221"><img src='assets/img/text.png' width='200'></a>
+                    <br>
+                    <p class="large text-muted">Or book a service online!</p>
+                    <a class="nav-link" href="https://booking.mangomint.com/101649"><img src='assets/img/book_now.png' width='300'></a>
                     </div>
                 </div>
             </div>
@@ -146,9 +206,30 @@
                         <h4 class="my-3">Waxing, Brows, and Lashes</h4>
                         <p class="text-muted">Full body waxing, lash lifts, brow and lash tinting.</p>
                     </div>
+                    <div class="col-md-4">
+                    <!--     <span class="fa-stack fa-4x">
+                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fas fa-lock fa-stack-1x fa-inverse"></i>
+                        </span> -->
+                        <img class="mx-auto rounded-circle" src="assets/img/services/4.png" alt="..." />
+                        <h4 class="my-3">Spiritual and Energy</h4>
+                        <p class="text-muted">Reiki</p>
+                    </div>
+                    <div class="col-md-4">
+                    <!--     <span class="fa-stack fa-4x">
+                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fas fa-lock fa-stack-1x fa-inverse"></i>
+                        </span> -->
+                        <img class="mx-auto rounded-circle" src="assets/img/services/5.jpg" alt="..." />
+                        <h4 class="my-3">Healing</h4>
+                        <p class="text-muted">Cupping</p>
+                    </div>
                 </div>
             </div>
         </section>
+        <div class="col-md-12 text-center">
+        <a class="nav-link" href="https://booking.mangomint.com/101649"><img src='assets/img/book_now.png' width='300'></a>
+        </div>
         <!-- Team-->
         <section class="page-section bg-light" id="team">
             <div class="container">
@@ -204,6 +285,10 @@
                 </div>
             </div>
         </section>
+
+        <div class="col-md-12 text-center">
+        <a class="nav-link" href="https://booking.mangomint.com/101649"><img src='assets/img/book_now.png' width='300'></a>
+        </div>
         <!-- Clients-->
 <!--         <div class="py-5">
             <div class="container">
@@ -250,7 +335,8 @@
                     <div class="col-lg-4">
                         <div class="team-member">
                             <a href="tel:+423-218-2841" ><img class="mx-auto text-center mb-sm-3" src="assets/img/phone.jpg" alt="..." width='300'/></a>
-                            <h3 class="section-subheading text-muted"><a href="tel:+423-218-2841" class="text-decoration-none link-dark">423-218-2841</a></h3>
+                            <h3 class="section-subheading text-muted"><a href="tel:+423-218-2841" class="text-decoration-none link-dark">Call</a> or 
+                            <a class="text-decoration-none link-dark" href="sms:+423-537-4221">Text</a></h3>
                         </div>
                     </div>
                     <div class="col-lg-4">
