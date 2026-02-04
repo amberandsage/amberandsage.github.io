@@ -247,7 +247,7 @@
       if (cropper) cropper.destroy();
 
       cropper = new Cropper(image, {
-        viewMode: 1, dragMode: 'none', aspectRatio: 1.618,
+        viewMode: 1, dragMode: 'none', aspectRatio: 1.583,
         autoCropArea: 1, zoomable: false, cropBoxMovable: false, 
         ready() {
           isInternalChange = true;
@@ -273,7 +273,7 @@
     const canvasData = cropper.getCanvasData();
     const ratio = preset === 'wide' ? 0.74 : 0.58; 
     const newWidth = canvasData.width * ratio;
-    cropper.setCropBoxData({ width: newWidth, height: newWidth / 1.618 });
+    cropper.setCropBoxData({ width: newWidth, height: newWidth / 1.583 });
     forceBottomCenter();
   }
 
