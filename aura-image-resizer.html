@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aura Cloud Professional Editor</title>
+
+  <link rel="stylesheet" href="https://unpkg.com/cropperjs@1.6.2/dist/cropper.min.css" />
+  <script src="https://unpkg.com/cropperjs@1.6.2/dist/cropper.min.js"></script>
+
+  <style>
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 20px; background: #f0f2f5; color: #333; }
+    .container { max-width: 1100px; margin: auto; background: #fff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+    
+    .dropzone {
+      margin-bottom: 20px;
+      padding: 160px 40px;
+      border: 4px dashed #cbd5e0;
+      border-radius: 16px;
+      text-align: center;
+      color: #718096;
+      cursor: pointer;
+      font-size: 1.5rem;
+      font-weight: 500;
+      background: #fdfdfd;
+      transition: all 0.3s ease;
+    }
+    .dropzone.hidden { display: none !important; }
+    .dropzone:hover { border-color: #3182ce; background: #f0f7ff; }
+
+    .img-container { 
+      display: none; 
+      height: 450px; 
+      background: #000; 
+      border-radius: 8px; 
+      overflow: hidden;
+      align-items: flex-end;
+      justify-content: center;
+    }
+    .img-container.active { display: flex; }
+    
+    .settings-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 15px;
+      background: #f8fafc;
+      padding: 20px;
+      border-radius: 8px;
+      margin-top: 20px;
+    }
+
+    .control-group { display: flex; flex-direction: column; gap: 6px; }
+    label { font-weight: 700; font-size: 0.75rem; text-transform: uppercase; color: #4a5568; }
+    
+    select, input { 
+      padding: 10px; border-radius: 6px; border: 1px solid #cbd5e0; background: white; 
+      font-size: 0.9rem; display: block; width: 100%; box-sizing: border-box; color: #333;
+    }
+    input:focus { outline: 2px solid #3182ce; border-color: transparent; }
+
+    .preview-stage {
+      margin-top: 25px;
+      height: 800px; 
+      width: 100%;
+      background: #e2e8f0; 
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    #resultCanvas { max-width: 95%; max-height: 95%; object-fit: contain; box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
+
+    .action-row { display: flex; gap: 10px; margin-top: 20px; }
+    #downloadBtn { background: #2f855a; color: white; border: none; flex: 3; height: 60px; cursor: pointer; font-weight: 700; border-radius: 8px; font-size: 1.2rem; }
+    #resetBtn { background: #718096; color: white; border: none; flex: 1; height: 60px; cursor: pointer; font-weight: 700; border-radius: 8px; font-size: 1rem; }
+    #downloadBtn:hover, #resetBtn:hover { opacity: 0.9; }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div id="dropzone" class="dropzone">
+    <span id="dropzoneText">DRAG & DROP AURA IMAGE HERE<br><small style="font-size: 0.9rem; font-weight: normal;">(or click to browse)</small></span>
+  </div>
+  <input type="file" id="inputImage" accept="image/*" style="display:none;" />
+
+  <div id="editorBox" class="img-container">
+    <img id="image" style="display:none;" />
+  </div>
+
+  <div class="settings-grid">
+    <div class="control-group">
+      <label>Crop Preset</label>
+      <select id="cropPreset" class="auto-update">
+        <option value="wide" selected>Wide (Full Aura Edges)</option>
+        <option value="tight">Standard (Top of Halo)</option>
+        <option value="custom" disabled>Custom Crop</option>
+      </select>
+    </div>
+
+    <div class="control-group">
+      <label>Title/Name</label>
+      <input type="text" id="nameInput" class="auto-update" placeholder="Enter Name...">
+    </div>
+
+    <div class="control-group">
+      <label>Text Appearance</label>
+      <div style="display:flex; gap: 5px;">
+        <select id="textColor" class="auto-update" style="flex:1">
+          <option value="#E2725B" selected>Terracotta</option>
+          <option value="#8A9A5B">Sage Green</option>
+          <option value="#000000">Black</option>
+          <option value="#FFFFFF">White</option>
+        </select>
+        <select id="textPosition" class="auto-update" style="flex:1">
+          <option value="tl" selected>Top L</option>
+          <option value="tr">Top R</option>
+          <option value="bl">Bottom L</option>
+          <option value="br">Bottom R</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label>Text Size</label>
+      <input type="range" id="textSize" class="auto-update" min="2" max="8" step="1" value="4">
+    </div>
+
+    <div class="control-group">
+      <label>Logo Display</label>
+      <div style="display:flex; gap: 5px;">
+        <select id="wmToggle" class="auto-update" style="flex:1">
+          <option value="apply" selected>Enable Logo</option>
+          <option value="none">Disable Logo</option>
+        </select>
+        <select id="wmPosition" class="auto-update" style="flex:1">
+          <option value="tl">Top L</option>
+          <option value="tr">Top R</option>
+          <option value="bl">Bottom L</option>
+          <option value="br" selected>Bottom R</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label>Logo Size & Opacity</label>
+      <div style="display:flex; align-items:center; gap: 10px;">
+        <select id="wmSize" class="auto-update" style="width: 80px;">
+          <option value="0.08">Small</option>
+          <option value="0.12" selected>Med</option>
+          <option value="0.20">Large</option>
+        </select>
+        <input type="range" id="wmOpacity" class="auto-update" min="0" max="100" step="20" value="80">
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label>Date Overlay</label>
+      <select id="dateToggle" class="auto-update">
+        <option value="show" selected>Show Current Date</option>
+        <option value="none">No Date</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="preview-stage">
+    <canvas id="resultCanvas"></canvas>
+  </div>
+  
+  <div class="action-row">
+    <button id="downloadBtn">Download Finished Aura</button>
+    <button id="resetBtn">Next Client</button>
+  </div>
+</div>
+
+<script>
+  const inputImage = document.getElementById("inputImage");
+  const dropzone = document.getElementById("dropzone");
+  const editorBox = document.getElementById("editorBox");
+  const image = document.getElementById("image");
+  const canvas = document.getElementById("resultCanvas");
+  const ctx = canvas.getContext("2d");
+  const cropSelect = document.getElementById('cropPreset');
+  
+  const WATERMARK_SRC = 'https://amberandsagespa.com/assets/img/as_logo_sm.png'; 
+  const watermarkImg = new Image();
+  watermarkImg.crossOrigin = "anonymous";
+  watermarkImg.src = WATERMARK_SRC;
+
+  let cropper;
+  let renderTimeout;
+  let isInternalChange = false;
+
+  const today = new Date();
+  const dateUI = `${String(today.getMonth() + 1).padStart(2, '0')}/${String(today.getDate()).padStart(2, '0')}/${today.getFullYear()}`;
+  const dateFile = `${today.getFullYear()}${String(today.getMonth() + 1).padStart(2, '0')}${String(today.getDate()).padStart(2, '0')}`;
+
+  document.querySelectorAll('.auto-update').forEach(el => {
+    el.addEventListener('input', () => {
+      if (el.id === 'cropPreset' && cropper) {
+        isInternalChange = true;
+        applyPreset();
+        isInternalChange = false;
+      }
+      requestUpdate();
+    });
+  });
+
+  function requestUpdate() {
+    clearTimeout(renderTimeout);
+    renderTimeout = setTimeout(processImage, 25); 
+  }
+
+  // FIXED CLICK LOGIC
+  dropzone.onclick = () => inputImage.click();
+
+  // FIXED DRAG AND DROP
+  dropzone.ondragover = (e) => {
+    e.preventDefault();
+    dropzone.style.borderColor = "#3182ce";
+    dropzone.style.background = "#f0f7ff";
+  };
+  dropzone.ondragleave = () => {
+    dropzone.style.borderColor = "#cbd5e0";
+    dropzone.style.background = "#fdfdfd";
+  };
+  dropzone.ondrop = (e) => {
+    e.preventDefault();
+    if (e.dataTransfer.files[0]) loadImage(e.dataTransfer.files[0]);
+  };
+
+  inputImage.onchange = (e) => {
+    if (e.target.files[0]) loadImage(e.target.files[0]);
+  };
+
+  function loadImage(file) {
+    const reader = new FileReader();
+    reader.onload = () => {
+      image.src = reader.result;
+      image.style.display = "block";
+      
+      dropzone.classList.add("hidden");
+      editorBox.classList.add("active");
+
+      if (cropper) cropper.destroy();
+
+      cropper = new Cropper(image, {
+        viewMode: 1, dragMode: 'none', aspectRatio: 1.618,
+        autoCropArea: 1, zoomable: false, cropBoxMovable: false, 
+        ready() {
+          isInternalChange = true;
+          applyPreset();
+          isInternalChange = false;
+          processImage();
+        },
+        cropmove() {
+          forceBottomCenter();
+          if (!isInternalChange) {
+            cropSelect.value = "custom";
+          }
+          requestUpdate();
+        }
+      });
+    };
+    reader.readAsDataURL(file);
+  }
+
+  function applyPreset() {
+    const preset = cropSelect.value;
+    if (preset === "custom") return;
+    const canvasData = cropper.getCanvasData();
+    const ratio = preset === 'wide' ? 0.74 : 0.58; 
+    const newWidth = canvasData.width * ratio;
+    cropper.setCropBoxData({ width: newWidth, height: newWidth / 1.618 });
+    forceBottomCenter();
+  }
+
+  function forceBottomCenter() {
+    const container = cropper.getContainerData();
+    const box = cropper.getCropBoxData();
+    const canv = cropper.getCanvasData();
+    cropper.setCanvasData({ left: (container.width - canv.width) / 2, top: container.height - canv.height });
+    cropper.setCropBoxData({ left: (container.width - box.width) / 2, top: container.height - box.height });
+  }
+
+  function processImage() {
+    if (!cropper) return;
+    const croppedCanvas = cropper.getCroppedCanvas();
+    if (!croppedCanvas) return;
+
+    canvas.width = croppedCanvas.width;
+    canvas.height = croppedCanvas.height;
+    ctx.drawImage(croppedCanvas, 0, 0);
+
+    const pad = canvas.width * 0.03;
+    const name = document.getElementById("nameInput").value;
+    const showDate = document.getElementById("dateToggle").value === "show";
+    const tColor = document.getElementById("textColor").value;
+    const tPos = document.getElementById("textPosition").value;
+    const sizeMult = parseFloat(document.getElementById("textSize").value) / 100;
+
+    ctx.fillStyle = tColor;
+    ctx.textBaseline = "top";
+    ctx.shadowColor = "rgba(0,0,0,0.8)";
+    ctx.shadowBlur = 5;
+
+    const fontSize = canvas.width * sizeMult;
+    const dateSize = fontSize * 0.6;
+
+    let tx = pad, ty = pad;
+    ctx.textAlign = "left";
+    if (tPos.includes('r')) { tx = canvas.width - pad; ctx.textAlign = "right"; }
+    if (tPos.includes('b')) { ty = canvas.height - pad - fontSize - (showDate ? dateSize : 0); }
+
+    if (name) {
+      ctx.font = `bold ${fontSize}px 'Segoe UI', Arial`;
+      ctx.fillText(name.toUpperCase(), tx, ty);
+    }
+    if (showDate) {
+      ctx.font = `${dateSize}px 'Segoe UI', Arial`;
+      ctx.fillText(dateUI, tx, name ? ty + fontSize + 5 : ty);
+    }
+    
+    if (document.getElementById("wmToggle").value === "apply") {
+      const wmSizeFactor = parseFloat(document.getElementById("wmSize").value);
+      const wmPos = document.getElementById("wmPosition").value;
+      const wmSide = canvas.width * wmSizeFactor;
+      let dx = pad, dy = pad;
+      if (wmPos.includes('r')) dx = canvas.width - wmSide - pad;
+      if (wmPos.includes('b')) dy = canvas.height - wmSide - pad;
+      ctx.globalAlpha = parseInt(document.getElementById("wmOpacity").value) / 100;
+      ctx.drawImage(watermarkImg, dx, dy, wmSide, wmSide);
+      ctx.globalAlpha = 1.0;
+    }
+  }
+
+  document.getElementById("downloadBtn").onclick = () => {
+    if (!canvas.width) return;
+    const nameClean = document.getElementById("nameInput").value.trim().replace(/\s+/g, '-');
+    const fileName = nameClean 
+      ? `${dateFile}-${nameClean}-AmberAndSageAura-${Date.now()}.png` 
+      : `${dateFile}-AmberAndSageAura-${Date.now()}.png`;
+    
+    canvas.toBlob(b => {
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(b);
+      a.download = fileName;
+      a.click();
+    }, "image/png");
+  };
+
+  document.getElementById("resetBtn").onclick = () => {
+    if (!confirm("Start new client?")) return;
+    document.getElementById("nameInput").value = "";
+    document.getElementById("cropPreset").value = "wide";
+    canvas.width = 0; canvas.height = 0;
+    if (cropper) { cropper.destroy(); cropper = null; }
+    image.style.display = "none";
+    dropzone.classList.remove("hidden");
+    dropzone.style.borderColor = "#cbd5e0";
+    dropzone.style.background = "#fdfdfd";
+    editorBox.classList.remove("active");
+  };
+</script>
+
+</body>
+</html>
