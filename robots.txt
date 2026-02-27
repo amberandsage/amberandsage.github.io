@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://amberandsagespa.com/sitemap.xml
