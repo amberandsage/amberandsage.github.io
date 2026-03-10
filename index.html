@@ -1839,6 +1839,7 @@
                 transform: scale(0.95);
                 transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
                 line-height: 0;
+                margin-top: 42px;
             }
             .as-promo-overlay.open .as-promo-modal {
                 transform: scale(1);
@@ -2207,6 +2208,29 @@
             </div>
         </section> -->
         <!-- ===== END EVENT SPOTLIGHT ===== -->
+
+        <!-- ===== PROMOTION SPOTLIGHT =====
+             To feature an promotion: uncomment this section and update the image/link.
+             To hide it: wrap it in a comment block like normal.
+        -->
+        <section class="as-section as-event" id="event" style="padding: 80px 0;">
+            <div class="as-section-inner" style="max-width: 900px;">
+                <div class="as-section-header as-reveal">
+                    <span class="as-section-eyebrow">Current Promotion</span>
+                    <h2 class="as-section-title">Don't Miss This</h2>
+                    <div class="as-line"></div>
+                </div>
+                <div class="as-reveal" style="text-align: center;">
+                    <!-- <a href="https://booking.mangomint.com/amberandsage?serviceId=111" style="display: inline-block; transition: transform 0.4s, box-shadow 0.4s;"> -->
+                        <img src="assets/img/twofortuesday.jpg" alt="Two for Tuesday promotion at Amber &amp; Sage" width="600" height="1074" style="max-width: 420px; width: 100%; height: auto; box-shadow: 0 16px 48px rgba(0,0,0,0.1); transition: transform 0.4s, box-shadow 0.4s;">
+                    <!-- </a> -->
+<!--                     <div style="margin-top: 28px;">
+                        <a href="https://booking.mangomint.com/amberandsage?serviceId=111" class="as-btn-primary"><span>Reserve Your Spot</span></a>
+                    </div> -->
+                </div>
+            </div>
+        </section>
+        <!-- ===== END PROMOTION SPOTLIGHT ===== -->
 
         <!-- ===== SERVICES ===== -->
         <section class="as-section as-services" id="services">
@@ -2718,10 +2742,7 @@
                 </div>
                 <button class="as-promo-arrow as-promo-prev" aria-label="Previous">&#8249;</button>
                 <button class="as-promo-arrow as-promo-next" aria-label="Next">&#8250;</button>
-                <div class="as-promo-dots" id="promoDots">
-                    <button class="as-promo-dot active"></button>
-                    <button class="as-promo-dot"></button>
-                </div>
+                <div class="as-promo-dots" id="promoDots"></div>
             </div>
         </div>
 
@@ -2878,10 +2899,23 @@
             const promoClose = document.getElementById('promoClose');
             const promoNavLink = document.getElementById('promoNavLink');
             const promoSlides = document.getElementById('promoSlides');
-            const promoDots = document.querySelectorAll('.as-promo-dot');
-            const promoSlideCount = promoDots.length;
+            const promoDotsContainer = document.getElementById('promoDots');
+            const promoSlideEls = promoSlides.querySelectorAll('.as-promo-slide');
+            const promoSlideCount = promoSlideEls.length;
             let promoSlide = 0;
             let promoTimer = null;
+
+            // Auto-generate dots and show/hide arrows based on slide count
+            const promoArrows = document.querySelectorAll('.as-promo-prev, .as-promo-next');
+            if (promoSlideCount <= 1) {
+                promoArrows.forEach(a => a.style.display = 'none');
+            }
+            for (let i = 0; i < promoSlideCount; i++) {
+                const dot = document.createElement('button');
+                dot.className = 'as-promo-dot' + (i === 0 ? ' active' : '');
+                promoDotsContainer.appendChild(dot);
+            }
+            const promoDots = document.querySelectorAll('.as-promo-dot');
 
             function goToPromoSlide(i) {
                 promoSlide = ((i % promoSlideCount) + promoSlideCount) % promoSlideCount;
