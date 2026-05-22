@@ -2,32 +2,186 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
         <loc>https://amberandsagespa.com/</loc>
-        <lastmod>2026-02-27</lastmod>
+        <lastmod>2026-05-22</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
+
+    <!-- "Best of" editorial pages -->
     <url>
-        <loc>https://amberandsagespa.com/jobs.html</loc>
-        <lastmod>2026-02-27</lastmod>
+        <loc>https://amberandsagespa.com/best-spa-chattanooga.html</loc>
+        <lastmod>2026-05-22</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://amberandsagespa.com/best-facial-chattanooga.html</loc>
+        <lastmod>2026-05-22</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://amberandsagespa.com/best-massage-chattanooga.html</loc>
+        <lastmod>2026-05-22</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://amberandsagespa.com/best-buccal-massage-chattanooga.html</loc>
+        <lastmod>2026-05-22</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://amberandsagespa.com/best-sound-bath-chattanooga.html</loc>
+        <lastmod>2026-05-22</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Service landing pages -->
+    <url>
+        <loc>https://amberandsagespa.com/eminence-organic-facials-chattanooga.html</loc>
+        <lastmod>2026-05-22</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://amberandsagespa.com/deep-tissue-massage-chattanooga.html</loc>
+        <lastmod>2026-05-22</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://amberandsagespa.com/sound-bath-chattanooga.html</loc>
+        <lastmod>2026-05-22</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Neighborhood landing pages -->
+    <url>
+        <loc>https://amberandsagespa.com/spa-north-chattanooga.html</loc>
+        <lastmod>2026-05-22</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://amberandsagespa.com/spa-signal-mountain.html</loc>
+        <lastmod>2026-05-22</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://amberandsagespa.com/spa-red-bank.html</loc>
+        <lastmod>2026-05-22</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://amberandsagespa.com/spa-riverview.html</loc>
+        <lastmod>2026-05-22</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Aura photography -->
+    <url>
+        <loc>https://amberandsagespa.com/aura-photography-chattanooga.html</loc>
+        <lastmod>2026-05-22</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://amberandsagespa.com/what-is-aura-photography.html</loc>
+        <lastmod>2026-05-22</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- Private events and gift cards -->
+    <url>
+        <loc>https://amberandsagespa.com/private-events-chattanooga.html</loc>
+        <lastmod>2026-05-22</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://amberandsagespa.com/gift-cards-chattanooga.html</loc>
+        <lastmod>2026-05-22</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <!-- Additional educational pages -->
+    <url>
+        <loc>https://amberandsagespa.com/what-is-graston-technique.html</loc>
+        <lastmod>2026-05-22</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://amberandsagespa.com/what-is-myofascial-stretch-therapy.html</loc>
+        <lastmod>2026-05-22</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- "What is X?" educational pages -->
+    <url>
+        <loc>https://amberandsagespa.com/what-is-reiki.html</loc>
+        <lastmod>2026-05-22</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://amberandsagespa.com/what-is-dermaplaning.html</loc>
+        <lastmod>2026-05-22</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://amberandsagespa.com/what-is-buccal-massage.html</loc>
+        <lastmod>2026-05-22</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://amberandsagespa.com/what-is-cupping-therapy.html</loc>
+        <lastmod>2026-05-22</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://amberandsagespa.com/what-is-red-light-therapy.html</loc>
+        <lastmod>2026-05-22</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- Supporting pages -->
+    <url>
+        <loc>https://amberandsagespa.com/natural-body-gift-cards.html</loc>
+        <lastmod>2026-05-22</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>https://amberandsagespa.com/help.html</loc>
-        <lastmod>2026-02-27</lastmod>
+        <loc>https://amberandsagespa.com/jobs.html</loc>
+        <lastmod>2026-05-22</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.5</priority>
     </url>
     <url>
         <loc>https://amberandsagespa.com/preappointment-checklist.html</loc>
-        <lastmod>2026-02-27</lastmod>
+        <lastmod>2026-05-22</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>0.5</priority>
+        <priority>0.4</priority>
     </url>
     <url>
-        <loc>https://amberandsagespa.com/natural-body-gift-cards.html</loc>
-        <lastmod>2026-02-27</lastmod>
+        <loc>https://amberandsagespa.com/help.html</loc>
+        <lastmod>2026-05-22</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>0.6</priority>
+        <priority>0.3</priority>
     </url>
 </urlset>

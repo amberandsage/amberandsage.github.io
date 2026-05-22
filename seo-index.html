@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Site Index (Internal) | Amber & Sage Spa</title>
+
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+    <style>
+        :root {
+            --sage: #6B7F5E;
+            --sage-deep: #4A5D4D;
+            --sage-pale: #D4DEC8;
+            --terracotta: #B5651D;
+            --terracotta-dark: #8B4513;
+            --cream: #FAF7F2;
+            --cream-dark: #F0EBE1;
+            --warm-white: #FDFCFA;
+            --charcoal: #2D2926;
+            --warm-gray: #6B6560;
+            --light-gray: #B8B2AA;
+        }
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            background: var(--cream);
+            color: var(--charcoal);
+            line-height: 1.55;
+        }
+        .container { max-width: 1100px; margin: 0 auto; padding: 40px 24px 80px; }
+
+        .header {
+            border-bottom: 2px solid var(--sage);
+            padding-bottom: 20px;
+            margin-bottom: 36px;
+        }
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            color: var(--sage-deep);
+            font-size: 2.4rem;
+            margin: 0 0 8px;
+            font-weight: 500;
+        }
+        .subtitle { color: var(--warm-gray); font-size: 0.95rem; margin: 0; }
+
+        .notice {
+            background: #FFF8E1;
+            border-left: 4px solid var(--terracotta);
+            padding: 16px 22px;
+            border-radius: 6px;
+            margin-bottom: 36px;
+            font-size: 0.92rem;
+        }
+        .notice strong { color: var(--terracotta-dark); }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 14px;
+            margin-bottom: 40px;
+        }
+        .stat {
+            background: var(--warm-white);
+            border: 1px solid var(--cream-dark);
+            padding: 18px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .stat-num {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            color: var(--sage-deep);
+            display: block;
+        }
+        .stat-label {
+            font-size: 0.72rem;
+            color: var(--warm-gray);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        h2 {
+            font-family: 'Cormorant Garamond', serif;
+            color: var(--sage-deep);
+            font-size: 1.55rem;
+            margin: 44px 0 6px;
+            font-weight: 500;
+            border-bottom: 1px solid var(--cream-dark);
+            padding-bottom: 8px;
+        }
+        h2 .count {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.75rem;
+            color: var(--warm-gray);
+            font-weight: 400;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-left: 10px;
+        }
+        .section-intro {
+            color: var(--warm-gray);
+            font-size: 0.88rem;
+            margin: 0 0 18px;
+            font-style: italic;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--warm-white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+            margin-bottom: 16px;
+        }
+        th, td {
+            padding: 12px 16px;
+            text-align: left;
+            border-bottom: 1px solid var(--cream-dark);
+            font-size: 0.88rem;
+            vertical-align: top;
+        }
+        th {
+            background: var(--sage-pale);
+            color: var(--sage-deep);
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-weight: 600;
+        }
+        tr:last-child td { border-bottom: none; }
+        tr:hover td { background: rgba(212, 222, 200, 0.15); }
+
+        td a {
+            color: var(--sage-deep);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        td a:hover { color: var(--terracotta); text-decoration: underline; }
+        td.keywords {
+            color: var(--warm-gray);
+            font-size: 0.78rem;
+            font-style: italic;
+        }
+        td.desc {
+            color: var(--charcoal);
+            font-size: 0.82rem;
+        }
+        .tag {
+            display: inline-block;
+            background: var(--cream-dark);
+            color: var(--warm-gray);
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-right: 4px;
+        }
+        .tag.new { background: var(--sage-pale); color: var(--sage-deep); }
+        .tag.modified { background: #FBE9D8; color: var(--terracotta-dark); }
+        .tag.utility { background: #E5E2DC; color: var(--warm-gray); }
+
+        footer {
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px solid var(--cream-dark);
+            font-size: 0.78rem;
+            color: var(--light-gray);
+            text-align: center;
+        }
+
+        @media (max-width: 720px) {
+            table, thead, tbody, tr, th, td { display: block; }
+            thead { display: none; }
+            tr {
+                border: 1px solid var(--cream-dark);
+                border-radius: 6px;
+                margin-bottom: 12px;
+                padding: 8px 12px;
+            }
+            td {
+                border: none;
+                padding: 6px 0;
+            }
+            td::before {
+                content: attr(data-label);
+                display: block;
+                font-size: 0.62rem;
+                text-transform: uppercase;
+                letter-spacing: 0.08em;
+                color: var(--warm-gray);
+                margin-bottom: 2px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>Site Index <span style="font-size: 1rem; color: var(--warm-gray); font-weight: normal;">(Internal Reference)</span></h1>
+        <p class="subtitle">Complete page inventory for Amber &amp; Sage Spa, organized by purpose and intent.</p>
+    </div>
+
+    <div class="notice">
+        <strong>Private page.</strong> This page has a <code>noindex, nofollow</code> meta tag and is not listed in the public sitemap. It won't appear in Google. Reachable only by direct URL — useful for internal navigation, content audits, and onboarding new team members to the site structure.
+    </div>
+
+    <div class="stats">
+        <div class="stat">
+            <span class="stat-num">29</span>
+            <span class="stat-label">Total pages</span>
+        </div>
+        <div class="stat">
+            <span class="stat-num">23</span>
+            <span class="stat-label">New SEO pages</span>
+        </div>
+        <div class="stat">
+            <span class="stat-num">7</span>
+            <span class="stat-label">Categories</span>
+        </div>
+        <div class="stat">
+            <span class="stat-num">~75k</span>
+            <span class="stat-label">Words of content</span>
+        </div>
+    </div>
+
+    <!-- ============== PRIMARY ============== -->
+    <h2>Primary Site <span class="count">3 pages</span></h2>
+    <p class="section-intro">The main entry points your customers see in everyday browsing.</p>
+    <table>
+        <thead><tr><th>Page</th><th>Description</th><th>Target Keywords</th></tr></thead>
+        <tbody>
+            <tr>
+                <td data-label="Page"><a href="index.html">index.html</a> <span class="tag modified">Schema updated</span></td>
+                <td data-label="Description" class="desc">The homepage. <code>areaServed</code> schema expanded to 10 cities/neighborhoods.</td>
+                <td data-label="Keywords" class="keywords">day spa Chattanooga, holistic spa, organic facial, massage, Hixson Pike</td>
+            </tr>
+            <tr>
+                <td data-label="Page"><a href="jobs.html">jobs.html</a> <span class="tag modified">Title fixed</span></td>
+                <td data-label="Description" class="desc">Careers landing. Title tag corrected from old Natural Body copy.</td>
+                <td data-label="Keywords" class="keywords">spa jobs Chattanooga, esthetician jobs, massage therapist careers</td>
+            </tr>
+            <tr>
+                <td data-label="Page"><a href="help.html">help.html</a></td>
+                <td data-label="Description" class="desc">Existing help/directions page. Unchanged.</td>
+                <td data-label="Keywords" class="keywords">—</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- ============== NEIGHBORHOOD ============== -->
+    <h2>Neighborhood Pages <span class="count">4 pages</span></h2>
+    <p class="section-intro">Hyperlocal pages targeting "spa near {neighborhood}" searches. Each ~600+ words with local landmarks, directions, and FAQs.</p>
+    <table>
+        <thead><tr><th>Page</th><th>Description</th><th>Target Keywords</th></tr></thead>
+        <tbody>
+            <tr>
+                <td data-label="Page"><a href="spa-north-chattanooga.html">spa-north-chattanooga.html</a> <span class="tag new">New</span></td>
+                <td data-label="Description" class="desc">North Chattanooga / North Shore / Stringer's Ridge / Frazier Avenue audience.</td>
+                <td data-label="Keywords" class="keywords">day spa North Chattanooga, North Shore spa, Hixson Pike spa</td>
+            </tr>
+            <tr>
+                <td data-label="Page"><a href="spa-signal-mountain.html">spa-signal-mountain.html</a> <span class="tag new">New</span></td>
+                <td data-label="Description" class="desc">Signal Mountain / Walden / W Road audience. Emphasizes 15-min drive.</td>
+                <td data-label="Keywords" class="keywords">day spa Signal Mountain TN, massage Signal Mountain, W Road spa</td>
+            </tr>
+            <tr>
+                <td data-label="Page"><a href="spa-red-bank.html">spa-red-bank.html</a> <span class="tag new">New</span></td>
+                <td data-label="Description" class="desc">Red Bank / Dayton Boulevard audience.</td>
+                <td data-label="Keywords" class="keywords">day spa Red Bank TN, massage Red Bank, Dayton Boulevard spa</td>
+            </tr>
+            <tr>
+                <td data-label="Page"><a href="spa-riverview.html">spa-riverview.html</a> <span class="tag new">New</span></td>
+                <td data-label="Description" class="desc">Riverview neighborhood audience. Emphasizes walkability.</td>
+                <td data-label="Keywords" class="keywords">day spa Riverview Chattanooga, massage Riverview, walkable spa</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- ============== SERVICE ============== -->
+    <h2>Service Landing Pages <span class="count">3 pages</span></h2>
+    <p class="section-intro">Deep-dive pages for specific high-volume service searches. Each with Service schema and booking CTAs.</p>
+    <table>
+        <thead><tr><th>Page</th><th>Description</th><th>Target Keywords</th></tr></thead>
+        <tbody>
+            <tr>
+                <td data-label="Page"><a href="eminence-organic-facials-chattanooga.html">eminence-organic-facials-chattanooga.html</a> <span class="tag new">New</span></td>
+                <td data-label="Description" class="desc">Eminence-partnered organic facials. Highlights ingredients, certifications, and add-ons.</td>
+                <td data-label="Keywords" class="keywords">Eminence facial Chattanooga, organic facial, dermaplaning, chemical peel</td>
+            </tr>
+            <tr>
+                <td data-label="Page"><a href="deep-tissue-massage-chattanooga.html">deep-tissue-massage-chattanooga.html</a> <span class="tag new">New</span></td>
+                <td data-label="Description" class="desc">Therapeutic massage with detailed modality breakdown. Targets active/athletic clients.</td>
+                <td data-label="Keywords" class="keywords">deep tissue massage Chattanooga, sports massage, therapeutic massage</td>
+            </tr>
+            <tr>
+                <td data-label="Page"><a href="sound-bath-chattanooga.html">sound-bath-chattanooga.html</a> <span class="tag new">New</span></td>
+                <td data-label="Description" class="desc">Group and private sound bath sessions. Crystal bowls, gongs, reiki pairings.</td>
+                <td data-label="Keywords" class="keywords">sound bath Chattanooga, sound healing, crystal bowls, meditation</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- ============== AURA ============== -->
+    <h2>Aura Photography <span class="count">2 pages</span></h2>
+    <p class="section-intro">Commercial + educational pair for the AuraCloud 3D Pro service. Distinctive offering, low local competition.</p>
+    <table>
+        <thead><tr><th>Page</th><th>Description</th><th>Target Keywords</th></tr></thead>
+        <tbody>
+            <tr>
+                <td data-label="Page"><a href="aura-photography-chattanooga.html">aura-photography-chattanooga.html</a> <span class="tag new">New</span></td>
+                <td data-label="Description" class="desc">Marketing page. Two-tier package (basic portrait + full reading). Pairs available.</td>
+                <td data-label="Keywords" class="keywords">aura photography Chattanooga, AuraCloud 3D Pro, aura reading</td>
+            </tr>
+            <tr>
+                <td data-label="Page"><a href="what-is-aura-photography.html">what-is-aura-photography.html</a> <span class="tag new">New</span></td>
+                <td data-label="Description" class="desc">Educational primer. Kirlian history through modern Inneractive systems.</td>
+                <td data-label="Keywords" class="keywords">what is aura photography, aura camera, aura colors meaning</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- ============== BEST OF ============== -->
+    <h2>"Best of" Editorial <span class="count">5 pages</span></h2>
+    <p class="section-intro">Editorial guides framed as "how to evaluate {service} in Chattanooga." Avoids direct "we are #1" claims while positioning us as exemplifying the criteria.</p>
+    <table>
+        <thead><tr><th>Page</th><th>Description</th><th>Target Keywords</th></tr></thead>
+        <tbody>
+            <tr>
+                <td data-label="Page"><a href="best-spa-chattanooga.html">best-spa-chattanooga.html</a> <span class="tag new">New</span></td>
+                <td data-label="Description" class="desc">Five-criteria guide for choosing a Chattanooga day spa.</td>
+                <td data-label="Keywords" class="keywords">best spa Chattanooga, best day spa, top rated spa</td>
+            </tr>
+            <tr>
+                <td data-label="Page"><a href="best-facial-chattanooga.html">best-facial-chattanooga.html</a> <span class="tag new">New</span></td>
+                <td data-label="Description" class="desc">What separates a great facial from a pretty one. Honest take.</td>
+                <td data-label="Keywords" class="keywords">best facial Chattanooga, top esthetician, best organic facial</td>
+            </tr>
+            <tr>
+                <td data-label="Page"><a href="best-massage-chattanooga.html">best-massage-chattanooga.html</a> <span class="tag new">New</span></td>
+                <td data-label="Description" class="desc">Modality matching, LMT credentialing, time-on-table guidance.</td>
+                <td data-label="Keywords" class="keywords">best massage Chattanooga, top massage therapist</td>
+            </tr>
+            <tr>
+                <td data-label="Page"><a href="best-buccal-massage-chattanooga.html">best-buccal-massage-chattanooga.html</a> <span class="tag new">New</span></td>
+                <td data-label="Description" class="desc">Niche, low-competition target. Notes scarcity of providers in Chattanooga.</td>
+                <td data-label="Keywords" class="keywords">best buccal massage Chattanooga, intra-oral facial massage</td>
+            </tr>
+            <tr>
+                <td data-label="Page"><a href="best-sound-bath-chattanooga.html">best-sound-bath-chattanooga.html</a> <span class="tag new">New</span></td>
+                <td data-label="Description" class="desc">Practitioner training, instrument quality, session structure.</td>
+                <td data-label="Keywords" class="keywords">best sound bath Chattanooga, top sound healer</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- ============== WHAT IS ============== -->
+    <h2>"What is X?" Educational <span class="count">7 pages</span></h2>
+    <p class="section-intro">Discovery-intent primers. Build topical authority and capture upper-funnel traffic that converts to bookings over time.</p>
+    <table>
+        <thead><tr><th>Page</th><th>Description</th><th>Target Keywords</th></tr></thead>
+        <tbody>
+            <tr>
+                <td data-label="Page"><a href="what-is-reiki.html">what-is-reiki.html</a> <span class="tag new">New</span></td>
+                <td data-label="Description" class="desc">Reiki primer. Honest framing — physiological + metaphysical.</td>
+                <td data-label="Keywords" class="keywords">what is reiki, reiki explained, reiki Chattanooga</td>
+            </tr>
+            <tr>
+                <td data-label="Page"><a href="what-is-dermaplaning.html">what-is-dermaplaning.html</a> <span class="tag new">New</span></td>
+                <td data-label="Description" class="desc">Dermaplaning primer. Debunks the "hair grows back thicker" myth.</td>
+                <td data-label="Keywords" class="keywords">what is dermaplaning, dermaplaning explained</td>
+            </tr>
+            <tr>
+                <td data-label="Page"><a href="what-is-buccal-massage.html">what-is-buccal-massage.html</a> <span class="tag new">New</span></td>
+                <td data-label="Description" class="desc">Anatomy-driven buccal massage primer (masseter, pterygoid, buccinator).</td>
+                <td data-label="Keywords" class="keywords">what is buccal massage, intra-oral massage</td>
+            </tr>
+            <tr>
+                <td data-label="Page"><a href="what-is-cupping-therapy.html">what-is-cupping-therapy.html</a> <span class="tag new">New</span></td>
+                <td data-label="Description" class="desc">Cupping primer. Honest about the marks vs. bruises distinction.</td>
+                <td data-label="Keywords" class="keywords">what is cupping therapy, cupping marks, cupping massage</td>
+            </tr>
+            <tr>
+                <td data-label="Page"><a href="what-is-red-light-therapy.html">what-is-red-light-therapy.html</a> <span class="tag new">New</span></td>
+                <td data-label="Description" class="desc">Red light / photobiomodulation primer. Honest about research vs. hype.</td>
+                <td data-label="Keywords" class="keywords">what is red light therapy, LED therapy, photobiomodulation</td>
+            </tr>
+            <tr>
+                <td data-label="Page"><a href="what-is-graston-technique.html">what-is-graston-technique.html</a> <span class="tag new">New</span></td>
+                <td data-label="Description" class="desc">Graston / IASTM primer. Athletic recovery audience.</td>
+                <td data-label="Keywords" class="keywords">what is Graston technique, IASTM, IT band massage</td>
+            </tr>
+            <tr>
+                <td data-label="Page"><a href="what-is-myofascial-stretch-therapy.html">what-is-myofascial-stretch-therapy.html</a> <span class="tag new">New</span></td>
+                <td data-label="Description" class="desc">Assisted stretching primer. Mobility-focused audience.</td>
+                <td data-label="Keywords" class="keywords">myofascial stretch therapy, assisted stretching, FST</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- ============== HIGH INTENT ============== -->
+    <h2>High-Intent Commercial <span class="count">2 pages</span></h2>
+    <p class="section-intro">High-conversion pages targeting strongly purchase-intentional searches.</p>
+    <table>
+        <thead><tr><th>Page</th><th>Description</th><th>Target Keywords</th></tr></thead>
+        <tbody>
+            <tr>
+                <td data-label="Page"><a href="private-events-chattanooga.html">private-events-chattanooga.html</a> <span class="tag new">New</span></td>
+                <td data-label="Description" class="desc">Bachelorette, corporate, birthdays, bridal parties. Inquiry-driven, no fixed packages.</td>
+                <td data-label="Keywords" class="keywords">bachelorette party Chattanooga, corporate wellness, private spa event</td>
+            </tr>
+            <tr>
+                <td data-label="Page"><a href="gift-cards-chattanooga.html">gift-cards-chattanooga.html</a> <span class="tag new">New</span></td>
+                <td data-label="Description" class="desc">Spa gift card landing. 5-year validity, 24/7 self-serve box mentioned.</td>
+                <td data-label="Keywords" class="keywords">spa gift card Chattanooga, spa gift certificate</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- ============== SUPPORTING ============== -->
+    <h2>Supporting / Legacy <span class="count">5 pages</span></h2>
+    <p class="section-intro">Existing pages, internal tools, and legacy redirects. Not part of the new SEO push.</p>
+    <table>
+        <thead><tr><th>Page</th><th>Description</th><th>Status</th></tr></thead>
+        <tbody>
+            <tr>
+                <td data-label="Page"><a href="natural-body-gift-cards.html">natural-body-gift-cards.html</a></td>
+                <td data-label="Description" class="desc">Natural Body gift card redemption page. Agreement ended 2026-04-30 but page left as-is per your direction.</td>
+                <td data-label="Status"><span class="tag utility">Legacy</span></td>
+            </tr>
+            <tr>
+                <td data-label="Page"><a href="preappointment-checklist.html">preappointment-checklist.html</a></td>
+                <td data-label="Description" class="desc">Pre-appointment instructions for new clients.</td>
+                <td data-label="Status"><span class="tag utility">Existing</span></td>
+            </tr>
+            <tr>
+                <td data-label="Page"><a href="giftcard-redirect.html">giftcard-redirect.html</a></td>
+                <td data-label="Description" class="desc">Redirect handler.</td>
+                <td data-label="Status"><span class="tag utility">Utility</span></td>
+            </tr>
+            <tr>
+                <td data-label="Page"><a href="offer-redirect.html">offer-redirect.html</a></td>
+                <td data-label="Description" class="desc">Offer/promo redirect handler.</td>
+                <td data-label="Status"><span class="tag utility">Utility</span></td>
+            </tr>
+            <tr>
+                <td data-label="Page"><a href="aura-image-resizer.html">aura-image-resizer.html</a></td>
+                <td data-label="Description" class="desc">Internal tool for processing aura photos. noindex.</td>
+                <td data-label="Status"><span class="tag utility">Internal tool</span></td>
+            </tr>
+            <tr>
+                <td data-label="Page"><a href="extra-sections.html">extra-sections.html</a></td>
+                <td data-label="Description" class="desc">Scratch / development page. Not linked publicly.</td>
+                <td data-label="Status"><span class="tag utility">Dev</span></td>
+            </tr>
+            <tr>
+                <td data-label="Page"><a href="index-old.html">index-old.html</a></td>
+                <td data-label="Description" class="desc">Backup of previous homepage.</td>
+                <td data-label="Status"><span class="tag utility">Archive</span></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- ============== ASSETS ============== -->
+    <h2>Shared Assets</h2>
+    <table>
+        <thead><tr><th>File</th><th>Description</th></tr></thead>
+        <tbody>
+            <tr>
+                <td data-label="File"><code>css/landing.css</code> <span class="tag new">New</span></td>
+                <td data-label="Description" class="desc">Shared stylesheet for all 23 new SEO pages. Brand-matched (sage, terracotta, cream, Cormorant Garamond + Montserrat).</td>
+            </tr>
+            <tr>
+                <td data-label="File"><code>css/styles.css</code></td>
+                <td data-label="Description" class="desc">Original Bootstrap-Agency styles used by index.html and legacy pages.</td>
+            </tr>
+            <tr>
+                <td data-label="File"><code>sitemap.xml</code> <span class="tag modified">Updated</span></td>
+                <td data-label="Description" class="desc">Lists 23 new pages + existing public pages. Refreshed lastmod dates.</td>
+            </tr>
+            <tr>
+                <td data-label="File"><code>robots.txt</code></td>
+                <td data-label="Description" class="desc">Allows all crawlers, points to sitemap. Unchanged.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <footer>
+        Last generated 2026-05-22 &middot; This page is <code>noindex</code> and not listed in sitemap.xml. Keep the URL out of public-facing content.
+    </footer>
+</div>
+
+</body>
+</html>
