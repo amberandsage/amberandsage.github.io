@@ -120,6 +120,34 @@ p { margin: 0 0 1.1rem; }
 }
 .lp-nav-cta:hover { background: var(--sage-deep); }
 
+/* ----- Breadcrumbs ----- */
+.lp-breadcrumbs {
+    background: var(--warm-white);
+    border-bottom: 1px solid var(--cream-dark);
+    padding: 12px 20px;
+    font-size: 0.82rem;
+    color: var(--warm-gray);
+}
+.lp-breadcrumbs-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+.lp-breadcrumbs a {
+    color: var(--sage-deep);
+    text-decoration: none;
+}
+.lp-breadcrumbs a:hover {
+    color: var(--terracotta);
+    text-decoration: underline;
+}
+.lp-breadcrumb-sep {
+    margin: 0 8px;
+    color: var(--light-gray);
+}
+.lp-breadcrumb-current {
+    color: var(--charcoal);
+}
+
 /* ----- Hero ----- */
 .lp-hero {
     background: linear-gradient(135deg, var(--cream) 0%, var(--cream-dark) 100%);
