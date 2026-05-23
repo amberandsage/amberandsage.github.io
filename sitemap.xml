@@ -7,6 +7,14 @@
         <priority>1.0</priority>
     </url>
 
+    <!-- Service directory -->
+    <url>
+        <loc>https://amberandsagespa.com/services.html</loc>
+        <lastmod>2026-05-23</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.95</priority>
+    </url>
+
     <!-- "Best of" editorial pages -->
     <url>
         <loc>https://amberandsagespa.com/best-spa-chattanooga.html</loc>
@@ -111,6 +119,78 @@
         <lastmod>2026-05-22</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
+    </url>
+
+    <!-- Comparison guides -->
+    <url>
+        <loc>https://amberandsagespa.com/enzyme-peel-vs-chemical-peel.html</loc>
+        <lastmod>2026-05-23</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://amberandsagespa.com/which-facial-should-i-get.html</loc>
+        <lastmod>2026-05-23</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://amberandsagespa.com/which-oxygen-facial-should-i-get.html</loc>
+        <lastmod>2026-05-23</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <!-- Intraceuticals oxygen facial -->
+    <url>
+        <loc>https://amberandsagespa.com/what-is-an-oxygen-facial.html</loc>
+        <lastmod>2026-05-23</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Additional facial service pages -->
+    <url>
+        <loc>https://amberandsagespa.com/microderm-facial-chattanooga.html</loc>
+        <lastmod>2026-05-23</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://amberandsagespa.com/acne-facial-chattanooga.html</loc>
+        <lastmod>2026-05-23</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://amberandsagespa.com/glow-and-sculpt-facial-chattanooga.html</loc>
+        <lastmod>2026-05-23</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Lash and brow services -->
+    <url>
+        <loc>https://amberandsagespa.com/lash-and-brow-chattanooga.html</loc>
+        <lastmod>2026-05-23</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <!-- Waxing services -->
+    <url>
+        <loc>https://amberandsagespa.com/waxing-chattanooga.html</loc>
+        <lastmod>2026-05-23</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <!-- Body scrub -->
+    <url>
+        <loc>https://amberandsagespa.com/body-scrub-chattanooga.html</loc>
+        <lastmod>2026-05-23</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
     </url>
 
     <!-- Additional educational pages -->
