@@ -2124,7 +2124,7 @@
 
         <!-- Skip to main content (Accessibility) -->
         <a href="#main-content" class="as-skip-link">Skip to main content</a>
-
+<!-- <button class="book-btn">Book Now</button> -->
         <!-- ===== ANNOUNCEMENT BAR ===== -->
         <div class="as-announcement">
             Same-day appointments? <a href="#" class="as-protected" data-t="sms" data-p="423-537-4221">Text us (<span class="as-p-num" data-v="423-537-4221"></span>)</a> or <a href="#" class="as-protected" data-t="tel" data-p="423-218-2841">call (<span class="as-p-num" data-v="423-218-2841"></span>)</a> &mdash; we'll make it happen.
@@ -2265,11 +2265,11 @@
                     <h2 class="as-section-title">Don't Miss This</h2>
                     <div class="as-line"></div>
                 </div>
-<!--                 <div class="as-reveal" style="text-align: center;">
-                    <a href="https://booking.mangomint.com/amberandsage?serviceId=112" style="display: inline-block; transition: transform 0.4s, box-shadow 0.4s;">
-                        <img src="assets/img/bamsaura.png" alt="Aura Photography" width="600" height="1074" style="max-width: 420px; width: 100%; height: auto; box-shadow: 0 16px 48px rgba(0,0,0,0.1); transition: transform 0.4s, box-shadow 0.4s;">
+                <div class="as-reveal" style="text-align: center;">
+                    <a href="https://clients.mangomint.com/gift-cards/amberandsage" style="display: inline-block; transition: transform 0.4s, box-shadow 0.4s;">
+                        <img src="assets/img/fathers-day-promo.png" alt="Fathers Day Promo" width="600" height="1074" style="max-width: 420px; width: 100%; height: auto; box-shadow: 0 16px 48px rgba(0,0,0,0.1); transition: transform 0.4s, box-shadow 0.4s;">
                     </a>
-                </div> -->
+                </div>
                 <div class="as-reveal" style="text-align: center;">
                     <!-- <a href="https://booking.mangomint.com/amberandsage?serviceId=111" style="display: inline-block; transition: transform 0.4s, box-shadow 0.4s;"> -->
                         <img src="assets/img/twofortuesday.jpg" alt="Two for Tuesday promotion at Amber &amp; Sage" width="600" height="1074" style="max-width: 420px; width: 100%; height: auto; box-shadow: 0 16px 48px rgba(0,0,0,0.1); transition: transform 0.4s, box-shadow 0.4s;">
@@ -2818,9 +2818,9 @@
 <!--                     <div class="as-promo-slide">
                         <img src="assets/img/spring-sound-bath.png" alt="New Moon Reiki Sound Bath - April 17th, 2026" width="600" height="1073">
                     </div> -->
-<!--                     <div class="as-promo-slide">
-                        <a href="https://booking.mangomint.com/amberandsage?serviceId=112"><img src="assets/img/bamsaura.png" alt="Aura Photography"></a>
-                    </div> -->
+                    <div class="as-promo-slide">
+                        <a href="https://clients.mangomint.com/gift-cards/amberandsage"><img src="assets/img/fathers-day-promo.png" alt="Fathers Day Promo"></a>
+                    </div>
                     <div class="as-promo-slide">
                         <img src="assets/img/twofortuesday.jpg" alt="Two for Tuesday promotion at Amber &amp; Sage">
                     </div>
@@ -3026,7 +3026,7 @@
                 promoOverlay.classList.remove('open');
                 document.body.style.overflow = '';
                 stopPromoTimer();
-                localStorage.setItem('promoDismissed2', Date.now().toString());
+                localStorage.setItem('promoDismissed4', Date.now().toString());
             }
 
             document.querySelector('.as-promo-prev').addEventListener('click', () => {
@@ -3053,7 +3053,7 @@
                 openPromo();
             });
 
-            const promoDismissed2At = localStorage.getItem('promoDismissed2');
+            const promoDismissed2At = localStorage.getItem('promoDismissed4');
             const promoExpired = !promoDismissed2At || (Date.now() - Number(promoDismissed2At)) > 14 * 24 * 60 * 60 * 1000;
             if (promoExpired) {
                 setTimeout(openPromo, 1500);
@@ -3092,6 +3092,7 @@
         <noscript>
         <img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=8345730&fmt=gif" />
         </noscript>
+        <script src="https://mycalendoula.com/testbed/widget.js"></script>
 
     </body>
 </html>
