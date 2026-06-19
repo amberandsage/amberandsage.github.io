@@ -2981,7 +2981,7 @@
                 promoOverlay.classList.remove('open');
                 document.body.style.overflow = '';
                 stopPromoTimer();
-                localStorage.setItem('promoDismissed2', Date.now().toString());
+                localStorage.setItem('promoDismissed4', Date.now().toString());
             }
 
             document.querySelector('.as-promo-prev').addEventListener('click', () => {
@@ -3008,7 +3008,7 @@
                 openPromo();
             });
 
-            const promoDismissed2At = localStorage.getItem('promoDismissed2');
+            const promoDismissed2At = localStorage.getItem('promoDismissed4');
             const promoExpired = !promoDismissed2At || (Date.now() - Number(promoDismissed2At)) > 14 * 24 * 60 * 60 * 1000;
             if (promoExpired) {
                 setTimeout(openPromo, 1500);
