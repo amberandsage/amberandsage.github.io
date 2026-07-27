@@ -320,6 +320,18 @@ p { margin: 0 0 1.1rem; }
 }
 .lp-related a:hover { background: var(--sage-pale); transform: translateY(-2px); }
 
+/* ----- Last Updated ----- */
+.lp-updated {
+    text-align: center;
+    padding: 20px 22px 8px;
+    font-size: 0.72rem;
+    color: var(--light-gray);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-style: italic;
+    background: var(--cream);
+}
+
 /* ----- Footer ----- */
 .lp-footer {
     background: var(--charcoal);
