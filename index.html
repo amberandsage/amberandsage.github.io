@@ -49,7 +49,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link rel="preconnect" href="https://use.fontawesome.com" />
-        <link rel="preconnect" href="https://booking.mangomint.com" />
+        <!-- <link rel="preconnect" href="https://booking.mangomint.com" /> -->
         <link rel="dns-prefetch" href="https://static.hotjar.com" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
 
@@ -243,7 +243,7 @@
                     "name": "Do I need to book in advance at Amber & Sage Spa?",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "We operate by appointment only, which means you'll always have a quiet, personal experience. You can book online anytime, or text us at 423-537-4221 for same-day availability."
+                        "text": "We operate by appointment only, which means you'll always have a quiet, personal experience. You can book online anytime, or text us at 423-250-7243 for same-day availability."
                     }
                 },
                 {
@@ -275,7 +275,8 @@
                     "name": "Does Amber & Sage Spa offer gift cards?",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "Absolutely! Digital gift cards are available in any amount and are delivered instantly via email. Purchase at https://clients.mangomint.com/gift-cards/amberandsage"
+                        // "text": "Absolutely! Digital gift cards are available in any amount and are delivered instantly via email. Purchase at https://clients.mangomint.com/gift-cards/amberandsage"
+                        "text": "Absolutely! Digital gift cards are available in any amount and are delivered instantly via email."
                     }
                 }
             ]
@@ -295,8 +296,8 @@
         </script>
 
         <!-- Mangomint Booking -->
-        <script>window.Mangomint = window.Mangomint || {}; window.Mangomint.CompanyId = 101649;</script>
-        <script src="https://booking.mangomint.com/app.js" async></script>
+<!--         <script>window.Mangomint = window.Mangomint || {}; window.Mangomint.CompanyId = 101649;</script>
+        <script src="https://booking.mangomint.com/app.js" async></script> -->
 
         <style>
             /* ============================================
@@ -309,6 +310,7 @@
                 --terracotta-dark: #8B4513;
                 --sage: #6B7F5E;
                 --sage-deep: #4A5D4D;
+                --warning-orange: #FEAA27D9;
                 --sage-light: #8A9A6F;
                 --sage-muted: #A8B89A;
                 --sage-pale: #D4DEC8;
@@ -361,8 +363,26 @@
                 letter-spacing: 0.8px;
                 line-height: 1.5;
             }
+            .as-announcement-warning {
+                background: var(--warning-orange);
+                color: rgba(0,0,0,0.8);
+                text-align: center;
+                padding: 11px 20px;
+                font-size: 0.88rem;
+                font-weight: 800;
+                letter-spacing: 0.8px;
+                line-height: 1.5;
+            }
             .as-announcement a {
                 color: #fff;
+                font-weight: 600;
+                text-decoration: none;
+                border-bottom: 1px solid rgba(255,255,255,0.4);
+                padding-bottom: 1px;
+                transition: border-color 0.3s;
+            }
+            .as-announcement-warning  a {
+                color: #333;
                 font-weight: 600;
                 text-decoration: none;
                 border-bottom: 1px solid rgba(255,255,255,0.4);
@@ -2127,7 +2147,10 @@
 <!-- <button class="book-btn">Book Now</button> -->
         <!-- ===== ANNOUNCEMENT BAR ===== -->
         <div class="as-announcement">
-            Same-day appointments? <a href="#" class="as-protected" data-t="sms" data-p="423-537-4221">Text us (<span class="as-p-num" data-v="423-537-4221"></span>)</a> or <a href="#" class="as-protected" data-t="tel" data-p="423-218-2841">call (<span class="as-p-num" data-v="423-218-2841"></span>)</a> &mdash; we'll make it happen.
+            Same-day appointments? <a href="#" class="as-protected" data-t="tel" data-p="423-250-7243">Call us</a> or <a href="#" class="as-protected" data-t="sms" data-p="423-250-7243">text us at (<span class="as-p-num" data-v="423-250-7243"></span>)</a> &mdash; we'll make it happen.
+        </div>
+        <div class="as-announcement-warning">
+            📣📣📣 We are currently switching our scheduling system, if you have ANY issues booking or purchasing a gift card, please <a href="#" class="as-protected" data-t="tel" data-p="423-218-2841">call (<span class="as-p-num" data-v="423-218-2841"></span>)</a> us directly to make an appointment or purchase. 📣📣📣
         </div>
 
         <!-- ===== NAVIGATION ===== -->
@@ -2141,15 +2164,15 @@
                     <li class="as-nav-services">
                         <a href="#services">Services <i class="fas fa-chevron-down" style="font-size:0.55rem; margin-left:3px; opacity:0.5;"></i></a>
                         <div class="as-nav-dropdown">
-                            <a href="https://booking.mangomint.com/101649?showOnlyScId=9"><i class="fas fa-sparkles"></i> Facials</a>
-                            <a href="https://booking.mangomint.com/101649?showOnlyScId=6"><i class="fas fa-hand-holding-heart"></i> Massage</a>
-                            <a href="https://booking.mangomint.com/101649?showOnlyScId=5"><i class="fas fa-eye"></i> Waxing, Brows & Lashes</a>
-                            <a href="https://booking.mangomint.com/101649?showOnlyScId=7"><i class="fas fa-yin-yang"></i> Reiki & Energy</a>
-                            <a href="https://booking.mangomint.com/101649?showOnlyScId=21"><i class="fas fa-hand-fist"></i> Healing Therapies</a>
-                            <a href="https://booking.mangomint.com/101649?showOnlyScId=6"><i class="fas fa-sun"></i> Red Light Therapy</a>
-                            <a href="https://booking.mangomint.com/amberandsage?serviceId=85"><i class="fas fa-om"></i> Yoga</a>
+                            <a href="#" onclick="return false;" class="book-btn"><i class="fas fa-sparkles"></i> Facials</a>
+                            <a href="#" onclick="return false;" class="book-btn"><i class="fas fa-hand-holding-heart"></i> Massage</a>
+                            <a href="#" onclick="return false;" class="book-btn"><i class="fas fa-eye"></i> Waxing, Brows & Lashes</a>
+                            <a href="#" onclick="return false;" class="book-btn"><i class="fas fa-yin-yang"></i> Reiki & Energy</a>
+                            <a href="#" onclick="return false;" class="book-btn"><i class="fas fa-hand-fist"></i> Healing Therapies</a>
+                            <a href="#" onclick="return false;" class="book-btn"><i class="fas fa-sun"></i> Red Light Therapy</a>
+                            <a href="#" onclick="return false;" class="book-btn"><i class="fas fa-om"></i> Yoga</a>
                             <a href="https://www.instagram.com/amberandsagespa/"><i class="fas fa-music"></i> Sound Therapy</a>
-                            <a href="https://booking.mangomint.com/101649" class="as-nav-dropdown-all"><i class="fas fa-calendar-check"></i> View Full Menu & Book</a>
+                            <a href="#"  onclick="return false;" class="book-btn as-nav-dropdown-all"><i class="fas fa-calendar-check"></i> View Full Menu & Book</a>
                         </div>
                     </li>
                     <li><a href="#event">Events</a></li>
@@ -2157,14 +2180,14 @@
                     <li><a href="#reviews">Reviews</a></li>
                     <li><a href="#team">Team</a></li>
                     <li><a href="#location">Find Us</a></li>
-                    <li><a href="https://clients.mangomint.com/gift-cards/amberandsage"><i class="fas fa-gift" style="font-size:0.65rem; opacity:0.6; margin-right:3px;"></i> Gift Cards</a></li>
+                    <li><a href="#" onclick="return false;" class="book-btn"><i class="fas fa-gift" style="font-size:0.65rem; opacity:0.6; margin-right:3px;"></i> Gift Cards</a></li>
                     <li>
                         <div class="as-nav-social">
                             <a href="https://www.instagram.com/amberandsagespa/" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                             <a href="https://www.facebook.com/profile.php?id=61575932099285" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
                         </div>
                     </li>
-                    <li><a href="https://booking.mangomint.com/101649" class="as-nav-cta"><span>Book Now</span></a></li>
+                    <li><button class="as-nav-cta book-btn"><span>Book Now</span></button></li>
                 </ul>
                 <button class="as-nav-toggle" id="asNavToggle" aria-label="Toggle menu">
                     <span></span>
@@ -2177,12 +2200,12 @@
         <!-- ===== QUICK LINKS BAR ===== -->
         <div class="as-quicklinks" id="asQuicklinks">
             <div class="as-quicklinks-inner">
-                <a href="https://booking.mangomint.com/101649?showOnlyScId=9">Facials</a>
-                <a href="https://booking.mangomint.com/101649?showOnlyScId=6">Massage</a>
-                <a href="https://booking.mangomint.com/101649?showOnlyScId=5">Waxing & Brows</a>
-                <a href="https://booking.mangomint.com/101649?showOnlyScId=7">Reiki</a>
-                <a href="https://booking.mangomint.com/101649?showOnlyScId=21">Healing</a>
-                <a href="https://booking.mangomint.com/amberandsage?serviceId=85">Yoga</a>
+                <a href="#" onclick="return false;" class="book-btn">Facials</a>
+                <a href="#" onclick="return false;" class="book-btn">Massage</a>
+                <a href="#" onclick="return false;" class="book-btn">Waxing & Brows</a>
+                <a href="#" onclick="return false;" class="book-btn">Reiki</a>
+                <a href="#" onclick="return false;" class="book-btn">Healing</a>
+                <a href="#" onclick="return false;" class="book-btn">Yoga</a>
             </div>
         </div>
 
@@ -2195,8 +2218,8 @@
                 <h1>Where Stillness<br>Meets <em>Restoration</em></h1>
                 <p class="as-hero-sub">Organic facials. Therapeutic massage. Reiki. Yoga. Sound healing. All in one beautifully intentional space.</p>
                 <div class="as-hero-actions">
-                    <a href="https://booking.mangomint.com/101649" class="as-btn-primary"><span>Book Your Escape</span></a>
-                    <a href="#" class="as-btn-secondary as-protected" data-t="sms" data-p="423-537-4221"><i class="fas fa-comment-dots"></i> Text Us</a>
+                    <button class="as-btn-primary book-btn"><span>Book Your Escape</span></button>
+                    <a href="#" class="as-btn-secondary as-protected" data-t="sms" data-p="423-250-7243"><i class="fas fa-comment-dots"></i> Text Us</a>
                 </div>
                 <p style="margin-top: 22px; font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase;"><a href="services.html" style="color: var(--cream); border-bottom: 1px solid rgba(250, 247, 242, 0.4); padding-bottom: 2px; text-decoration: none;">Explore Our Full Services &amp; Guides &rarr;</a></p>
             </div>
@@ -2292,7 +2315,7 @@
                     <p class="as-section-subtitle">Click any service to explore our full menu and book online.</p>
                 </div>
                 <div class="as-services-grid as-stagger">
-                    <a href="https://booking.mangomint.com/101649?showOnlyScId=9" class="as-service-card">
+                    <a href="#" onclick="return false;" class="book-btn as-service-card">
                         <div class="as-service-card-img">
                             <img src="assets/img/services/webp/1.webp" alt="Facials at Amber & Sage" width="360" height="360">
                         </div>
@@ -2302,7 +2325,7 @@
                             <span class="as-service-card-cta">View & Book <i class="fas fa-arrow-right"></i></span>
                         </div>
                     </a>
-                    <a href="https://booking.mangomint.com/101649?showOnlyScId=6" class="as-service-card">
+                    <a href="#" onclick="return false;" class="book-btn as-service-card">
                         <div class="as-service-card-img">
                             <img src="assets/img/services/webp/2.webp" alt="Massage at Amber & Sage" width="360" height="360">
                         </div>
@@ -2314,7 +2337,7 @@
                             <span class="as-service-card-cta">View & Book <i class="fas fa-arrow-right"></i></span>
                         </div>
                     </a>
-                    <a href="https://booking.mangomint.com/101649?showOnlyScId=5" class="as-service-card">
+                    <a href="#" onclick="return false;" class="book-btn as-service-card">
                         <div class="as-service-card-img">
                             <img src="assets/img/services/webp/3.webp" alt="Waxing services" width="360" height="360">
                         </div>
@@ -2324,7 +2347,7 @@
                             <span class="as-service-card-cta">View & Book <i class="fas fa-arrow-right"></i></span>
                         </div>
                     </a>
-                    <a href="https://booking.mangomint.com/101649?showOnlyScId=7" class="as-service-card">
+                    <a href="#" onclick="return false;" class="book-btn as-service-card">
                         <div class="as-service-card-img">
                             <img src="assets/img/services/webp/4.webp" alt="Reiki energy healing" width="360" height="360">
                         </div>
@@ -2334,7 +2357,7 @@
                             <span class="as-service-card-cta">View & Book <i class="fas fa-arrow-right"></i></span>
                         </div>
                     </a>
-                    <a href="https://booking.mangomint.com/101649" class="as-service-card">
+                    <a href="#" onclick="return false;" class="book-btn as-service-card">
                         <div class="as-service-card-img">
                             <img src="assets/img/services/webp/5.webp" alt="Healing therapies" width="360" height="360">
                         </div>
@@ -2344,7 +2367,7 @@
                             <span class="as-service-card-cta">View & Book <i class="fas fa-arrow-right"></i></span>
                         </div>
                     </a>
-                    <a href="https://booking.mangomint.com/101649" class="as-service-card">
+                    <a href="#" onclick="return false;" class="book-btn as-service-card">
                         <div class="as-service-card-img">
                             <img src="assets/img/services/webp/6.webp" alt="Red light therapy" width="360" height="360">
                         </div>
@@ -2354,7 +2377,7 @@
                             <span class="as-service-card-cta">View & Book <i class="fas fa-arrow-right"></i></span>
                         </div>
                     </a>
-                    <a href="https://booking.mangomint.com/101649" class="as-service-card">
+                    <a href="#" onclick="return false;" class="book-btn as-service-card">
                         <div class="as-service-card-img">
                             <img src="assets/img/services/webp/7.webp" alt="Yoga classes" width="360" height="360">
                         </div>
@@ -2364,7 +2387,7 @@
                             <span class="as-service-card-cta">View & Book <i class="fas fa-arrow-right"></i></span>
                         </div>
                     </a>
-                    <a href="https://www.instagram.com/amberandsagespa/" class="as-service-card">
+                    <a href="#" onclick="return false;" class="book-btn as-service-card">
                         <div class="as-service-card-img">
                             <img src="assets/img/services/webp/8.webp" alt="Sound healing therapy" width="360" height="360">
                         </div>
@@ -2374,7 +2397,7 @@
                             <span class="as-service-card-cta">Follow for Dates <i class="fab fa-instagram"></i></span>
                         </div>
                     </a>
-                    <a href="https://booking.mangomint.com/101649?showOnlyScId=6" class="as-service-card">
+                    <a href="#" onclick="return false;" class="book-btn as-service-card">
                         <div class="as-service-card-img">
                             <img src="assets/img/services/10.png" alt="Graston therapy" width="360" height="360">
                         </div>
@@ -2384,7 +2407,7 @@
                             <span class="as-service-card-cta">View & Book <i class="fas fa-arrow-right"></i></span>
                         </div>
                     </a>
-                    <a href="https://booking.mangomint.com/101649?showOnlyScId=6" class="as-service-card">
+                    <a href="#" onclick="return false;" class="book-btn as-service-card">
                         <div class="as-service-card-img">
                             <img src="assets/img/services/11.png" alt="Myofascial stretch therapy" width="360" height="360">
                         </div>
@@ -2394,7 +2417,7 @@
                             <span class="as-service-card-cta">View & Book <i class="fas fa-arrow-right"></i></span>
                         </div>
                     </a>
-                    <a href="https://booking.mangomint.com/amberandsage?serviceId=112" class="as-service-card">
+                    <a href="#" onclick="return false;" class="book-btn as-service-card">
                         <div class="as-service-card-img">
                             <img src="assets/img/kayla-aura-cropped.png" alt="Aura Photography" width="360" height="360">
                         </div>
@@ -2404,7 +2427,7 @@
                             <span class="as-service-card-cta">View & Book <i class="fas fa-arrow-right"></i></span>
                         </div>
                     </a>
-                    <a href="https://booking.mangomint.com/101649?showOnlyScId=9" class="as-service-card">
+                    <a href="#" onclick="return false;" class="book-btn as-service-card">
                         <div class="as-service-card-img">
                             <img src="assets/img/services/9.jpg" alt="Aromatherapy" width="360" height="360">
                         </div>
@@ -2424,7 +2447,7 @@
                 <span class="as-promo-eyebrow">The Perfect Gift</span>
                 <h2>Give the Gift of <em>Stillness</em></h2>
                 <p>Amber & Sage gift cards are available in any amount. The most thoughtful way to show someone you care about their wellbeing.</p>
-                <a href="https://clients.mangomint.com/gift-cards/amberandsage" class="as-btn-primary"><span>Shop Gift Cards</span></a>
+                <a href="#" onclick="return false;" class="book-btn as-btn-primary"><span>Shop Gift Cards</span></a>
             </div>
         </div>
 
@@ -2466,7 +2489,7 @@
                         <h2>A space designed<br>for <em>your</em> wellbeing</h2>
                         <p>Amber & Sage is a new kind of day spa in Chattanooga &mdash; holistic, intentional, and built around you. Every treatment is personalized, every product is thoughtfully chosen, and every visit is designed to leave you genuinely restored.</p>
                         <p>We are the only authorized <strong>Eminence Organic Skin Care</strong> partner within 5 miles of Chattanooga. From facials and deep tissue massage to reiki and sound healing, everything we do honors the connection between body, mind, and spirit.</p>
-                        <a href="#" class="as-highlight as-protected" data-t="sms" data-p="423-537-4221" style="text-decoration:none; color:#fff;">
+                        <a href="#" class="as-highlight as-protected" data-t="sms" data-p="423-250-7243" style="text-decoration:none; color:#fff;">
                             <i class="fas fa-clock"></i>
                             By appointment &mdash; text us for flexible scheduling
                         </a>
@@ -2593,13 +2616,13 @@
                         <h4>Rebekah</h4>
                         <span class="as-team-role">Esthetician</span>
                     </div>
-                    <div class="as-team-member">
+<!--                     <div class="as-team-member">
                         <div class="as-team-member-img-wrap">
                             <img class="as-team-member-img" loading="lazy" src="assets/img/team/webp/rob1.webp" alt="Rob" width="365" height="365">
                         </div>
                         <h4>Rob</h4>
                         <span class="as-team-role">Massage Therapist</span>
-                    </div>
+                    </div> -->
                     <div class="as-team-member">
                         <div class="as-team-member-img-wrap">
                             <img class="as-team-member-img" loading="lazy" src="assets/img/team/webp/jade1.webp" alt="Jade" width="365" height="365">
@@ -2652,13 +2675,13 @@
                         <h4>Sarah</h4>
                         <span class="as-team-role">Massage Therapist & Reiki</span>
                     </div>
-                    <div class="as-team-member">
+    <!--                 <div class="as-team-member">
                         <div class="as-team-member-img-wrap">
                             <img class="as-team-member-img" loading="lazy" src="assets/img/team/webp/loren.webp" alt="Loren" width="365" height="365">
                         </div>
                         <h4>Loren</h4>
                         <span class="as-team-role">Reiki Master & Yoga Instructor</span>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </section>
@@ -2743,7 +2766,7 @@
                             <span class="as-faq-icon"><i class="fas fa-plus"></i></span>
                         </button>
                         <div class="as-faq-answer">
-                            <p>Absolutely! Digital gift cards are available in any amount and are delivered instantly via email. They make the perfect gift for birthdays, holidays, or just because. <a href="https://clients.mangomint.com/gift-cards/amberandsage" style="color: var(--sage-deep); font-weight: 500; text-decoration: underline; text-underline-offset: 3px;">Shop gift cards here</a>.</p>
+                            <p>Absolutely! Digital gift cards are available in any amount and are delivered instantly via email. They make the perfect gift for birthdays, holidays, or just because. <a class="book-btn" href="#" onclick="return false;" style="color: var(--sage-deep); font-weight: 500; text-decoration: underline; text-underline-offset: 3px;">Shop gift cards here</a>.</p>
                         </div>
                     </li>
                 </ul>
@@ -2759,10 +2782,10 @@
                     <div class="as-line"></div>
                 </div>
                 <div class="as-location-grid as-stagger">
-                    <a href="#" class="as-location-item as-protected" data-t="tel" data-p="423-218-2841">
+                    <a href="#" class="as-location-item as-protected" data-t="sms" data-p="423-250-7243">
                         <div class="as-location-icon"><i class="fas fa-phone-alt"></i></div>
                         <h4>Call or Text</h4>
-                        <p><span class="as-p-num" data-v="423-218-2841"></span> (Call)<br><span class="as-p-num" data-v="423-537-4221"></span> (Text)</p>
+                        <p><span class="as-p-num" data-v="423-250-7243"></span></p>
                     </a>
                     <a href="https://maps.app.goo.gl/nJQpYP1JWsEbEmgj7" class="as-location-item">
                         <div class="as-location-icon"><i class="fas fa-map-marker-alt"></i></div>
@@ -2808,17 +2831,17 @@
                     <a href="https://www.facebook.com/profile.php?id=61575932099285" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
                 </div>
                 <div class="as-footer-links">
-                    <a href="https://mangomint.co/CVBgdt">Feedback</a>
-                    <a href="https://booking.mangomint.com/101649">Book Online</a>
-                    <a href="https://clients.mangomint.com/gift-cards/amberandsage">Gift Cards</a>
+                    <!-- <a href="https://mangomint.co/CVBgdt">Feedback</a> -->
+                    <a href="#" onclick="return false;" class="book-btn"><span>Book Now</span></a>
+                    <!-- <a href="https://clients.mangomint.com/gift-cards/amberandsage">Gift Cards</a> -->
                 </div>
             </div>
         </footer>
 
         <!-- ===== MOBILE STICKY CTA ===== -->
         <div class="as-sticky-mobile">
-            <a href="https://booking.mangomint.com/101649" class="as-sticky-book">Book Now</a>
-            <a href="#" class="as-sticky-text as-protected" data-t="sms" data-p="423-537-4221"><i class="fas fa-comment-dots"></i> Text Us</a>
+            <a href="#" onclick="return false;" class="book-btn"><span>Book Now</span></a>
+            <a href="#" class="as-sticky-text as-protected" data-t="sms" data-p="423-250-7243"><i class="fas fa-comment-dots"></i> Text Us</a>
         </div>
 
         <!-- ===== PROMO MODAL ===== -->
@@ -3104,7 +3127,7 @@
         <noscript>
         <img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=8345730&fmt=gif" />
         </noscript>
-        <script src="https://mycalendoula.com/testbed/widget.js"></script>
+        <script src="https://mycalendoula.com/amber-and-sage-spa/widget.js"></script>
 
     </body>
 </html>
