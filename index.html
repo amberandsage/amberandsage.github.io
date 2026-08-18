@@ -494,6 +494,34 @@
             .as-nav-cta:hover::before { transform: translateX(0); }
             .as-nav-cta span { position: relative; z-index: 1; }
             .as-nav-cta::after { display: none !important; }
+            .as-nav-cta-inverse {
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                background: var(--terracotta);
+                color: #fff !important;
+                padding: 11px 28px;
+                font-size: 0.72rem;
+                font-weight: 600;
+                letter-spacing: 2px;
+                text-transform: uppercase;
+                text-decoration: none;
+                border: none;
+                transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                position: relative;
+                overflow: hidden;
+            }
+            .as-nav-cta-inverse::before {
+                content: '';
+                position: absolute;
+                inset: 0;
+                background: var(--sage-deep);
+                transform: translateX(-101%);
+                transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+            .as-nav-cta-inverse:hover::before { transform: translateX(0); }
+            .as-nav-cta-inverse span { position: relative; z-index: 1; }
+            .as-nav-cta-inverse::after { display: none !important; }
 
             /* Services Mega Dropdown */
             .as-nav-services {
@@ -2147,7 +2175,9 @@
 <!-- <button class="book-btn">Book Now</button> -->
         <!-- ===== ANNOUNCEMENT BAR ===== -->
         <div class="as-announcement">
-            Same-day appointments? <a href="#" class="as-protected" data-t="tel" data-p="423-250-7243">Call us</a> or <a href="#" class="as-protected" data-t="sms" data-p="423-250-7243">text us at (<span class="as-p-num" data-v="423-250-7243"></span>)</a> &mdash; we'll make it happen.
+            <button class="as-nav-cta-inverse today-btn"><span>Same-day appointments? --> Click here <-- to view our same-day availability</span></button>
+            <br>
+            Don't see what you're looking for? <a href="#" class="as-protected" data-t="tel" data-p="423-250-7243">Call us</a> or <a href="#" class="as-protected" data-t="sms" data-p="423-250-7243">text us at (<span class="as-p-num" data-v="423-250-7243"></span>)</a> &mdash; we'll do our best to make it happen.
         </div>
         <div class="as-announcement-warning">
             📣📣📣 We are currently switching our scheduling system, if you have ANY issues booking or purchasing a gift card, please <a href="#" class="as-protected" data-t="tel" data-p="423-218-2841">call (<span class="as-p-num" data-v="423-218-2841"></span>)</a> us directly to make an appointment or purchase. 📣📣📣
@@ -2206,8 +2236,11 @@
                 <a href="#" onclick="return false;" class="book-btn">Reiki</a>
                 <a href="#" onclick="return false;" class="book-btn">Healing</a>
                 <a href="#" onclick="return false;" class="book-btn">Yoga</a>
+                <a href="#" onclick="return false;" class="book-btn">Yoga</a>
+                <a href="#same-day" onclick="return false;">Looking for a same-day appointment?</a>
             </div>
         </div>
+
 
         <!-- ===== HERO ===== -->
         <main id="main-content">
@@ -2276,7 +2309,9 @@
             </div>
         </section> -->
         <!-- ===== END EVENT SPOTLIGHT ===== -->
-
+        <section class="as-section as-event" id="same-day" style="padding: 80px 0;">
+            <div data-calendoula-today></div>
+        </section>  
         <!-- ===== PROMOTION SPOTLIGHT =====
              To feature an promotion: uncomment this section and update the image/link.
              To hide it: wrap it in a comment block like normal.
@@ -3128,6 +3163,7 @@
         <img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=8345730&fmt=gif" />
         </noscript>
         <script src="https://mycalendoula.com/amber-and-sage-spa/widget.js"></script>
+        <!-- <script src="https://calendoula.app/amber-and-sage-spa/widget.js"></script> -->
 
     </body>
 </html>
