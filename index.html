@@ -647,6 +647,8 @@
                 font-size: 0.65rem;
                 opacity: 0.6;
             }
+            /* Mobile-menu copy of the quick links — shown only in the open hamburger */
+            .as-nav-mq { display: none; }
 
             .as-nav-social {
                 display: flex;
@@ -2077,6 +2079,27 @@
                     to { opacity: 1; transform: translateY(0); }
                 }
                 .as-nav-links.open a { font-size: 0.9rem; }
+                .as-nav-links.open > li.as-nav-mq { display: block; }
+                .as-nav-links.open .as-nav-mq-links {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 8px;
+                    padding: 4px 0 14px;
+                    border-bottom: 1px solid rgba(0,0,0,0.06);
+                }
+                .as-nav-links.open .as-nav-mq-links a {
+                    font-size: 0.7rem;
+                    font-weight: 600;
+                    letter-spacing: 1px;
+                    text-transform: uppercase;
+                    color: var(--warm-gray);
+                    text-decoration: none;
+                    padding: 8px 14px;
+                    border: 1px solid rgba(0,0,0,0.1);
+                    border-radius: 999px;
+                    background: rgba(255,255,255,0.6);
+                }
+                .as-nav-links.open .as-nav-mq > a { font-size: 0.8rem; }
                 .as-nav-inner { padding: 0 20px; }
                 .as-hero { min-height: 100vh; min-height: 100svh; }
                 .as-hero h1 { font-size: 2.4rem; }
@@ -2190,6 +2213,18 @@
                     <span>Amber & Sage</span>
                 </a>
                 <ul class="as-nav-links" id="asNavLinks">
+                    <li class="as-nav-mq">
+                        <div class="as-nav-mq-links">
+                            <a href="#" onclick="return false;" class="book-btn">Facials</a>
+                            <a href="#" onclick="return false;" class="book-btn">Massage</a>
+                            <a href="#" onclick="return false;" class="book-btn">Waxing &amp; Brows</a>
+                            <a href="#" onclick="return false;" class="book-btn">Reiki</a>
+                            <a href="#" onclick="return false;" class="book-btn">Healing</a>
+                            <a href="#" onclick="return false;" class="book-btn">Yoga</a>
+                        </div>
+                        <a href="#same-day" onclick="return false;">Looking for a same-day appointment?</a>
+                        <a href="#" data-calendoula-form-button="ertZYf">Planning a party or events?</a>
+                    </li>
                     <li class="as-nav-services">
                         <a href="#services">Services <i class="fas fa-chevron-down" style="font-size:0.55rem; margin-left:3px; opacity:0.5;"></i></a>
                         <div class="as-nav-dropdown">
@@ -2236,6 +2271,7 @@
                 <a href="#" onclick="return false;" class="book-btn">Healing</a>
                 <a href="#" onclick="return false;" class="book-btn">Yoga</a>
                 <a href="#same-day" onclick="return false;">Looking for a same-day appointment?</a>
+                <a href="#" data-calendoula-form-button="ertZYf">Parties and Events?</a>
             </div>
         </div>
 
