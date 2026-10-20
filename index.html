@@ -611,18 +611,24 @@
                 box-shadow: 0 2px 12px rgba(0,0,0,0.04);
             }
             .as-quicklinks-inner {
-                max-width: 1260px;
+                max-width: 1500px;
                 margin: 0 auto;
                 padding: 0 32px;
                 display: flex;
                 align-items: center;
-                justify-content: center;
                 gap: 0;
                 overflow-x: auto;
                 -webkit-overflow-scrolling: touch;
                 scrollbar-width: none;
             }
             .as-quicklinks-inner::-webkit-scrollbar { display: none; }
+            /* Center when there's room, but keep both ends reachable when scrolling.
+               justify-content:center + overflow clips the left edge off-screen. */
+            .as-quicklinks-inner > a:first-child { margin-left: auto; }
+            .as-quicklinks-inner > a:last-child { margin-right: auto; }
+            @media (max-width: 1700px) {
+                .as-quicklinks a { padding: 12px 12px; letter-spacing: 0.5px; }
+            }
             .as-quicklinks a {
                 display: flex;
                 align-items: center;
@@ -2223,7 +2229,7 @@
                         </div>
                         <a href="#shop" onclick="return false;">Shop our retail products online</a>
                         <a href="#same-day" onclick="return false;">Looking for a same-day appointment?</a>
-                        <a href="#" data-calendoula-form-button="ertZYf">Planning a party or events?</a>
+                        <a href="#" data-calendoula-form-button="ertZYf">Planning a party or event?</a>
                     </li>
                     <li class="as-nav-services">
                         <a href="#services">Services <i class="fas fa-chevron-down" style="font-size:0.55rem; margin-left:3px; opacity:0.5;"></i></a>
@@ -2240,7 +2246,7 @@
                         </div>
                     </li>
                     <li><a href="#event">Events</a></li>
-                    <li><a href="#" id="promoNavLink">Promos</a></li>
+                    <!-- <li><a href="#" id="promoNavLink">Promos</a></li> -->
                     <li><a href="#reviews">Reviews</a></li>
                     <li><a href="#team">Team</a></li>
                     <li><a href="#location">Find Us</a></li>
@@ -2269,10 +2275,10 @@
                 <a href="#" onclick="return false;" class="book-btn" data-category="1">Waxing</a>
                 <a href="#" onclick="return false;" class="book-btn" data-category="16">Lash & Brows</a>
                 <a href="#" onclick="return false;" class="book-btn" data-category="13">Reiki</a>
-                <a href="#" onclick="return false;" class="book-btn">Yoga</a>
+                <!-- <a href="#" onclick="return false;" class="book-btn">Yoga</a> -->
                 <a href="#shop" onclick="return false;">Shop our retail products online</a>
                 <a href="#same-day" onclick="return false;">Looking for a same-day appointment?</a>
-                <a href="#" data-calendoula-form-button="ertZYf">Planning a party or events?</a>
+                <a href="#" data-calendoula-form-button="ertZYf">Planning a party or event?</a>
             </div>
         </div>
 
@@ -2368,7 +2374,7 @@
                 </div> -->
                 <div class="as-reveal" style="text-align: center;">
                     <!-- <a href="#" onclick="return false;" style="display: inline-block; transition: transform 0.4s, box-shadow 0.4s;" class="book-btn"> -->
-                        <img src="assets/img/twofortuesday.jpg" alt="Two for Tuesday promotion at Amber &amp; Sage" width="600" height="1074" style="max-width: 420px; width: 100%; height: auto; box-shadow: 0 16px 48px rgba(0,0,0,0.1); transition: transform 0.4s, box-shadow 0.4s;">
+                        <!-- <img src="assets/img/twofortuesday.jpg" alt="Two for Tuesday promotion at Amber &amp; Sage" width="600" height="1074" style="max-width: 420px; width: 100%; height: auto; box-shadow: 0 16px 48px rgba(0,0,0,0.1); transition: transform 0.4s, box-shadow 0.4s;"> -->
                     <!-- </a> -->
 <!--                     <div style="margin-top: 28px;">
                         <a href="#" onclick="return false;" class="as-btn-primary book-btn"><span>Reserve Your Spot</span></a>
@@ -2927,26 +2933,26 @@
         </div>
 
         <!-- ===== PROMO MODAL ===== -->
-        <div class="as-promo-overlay" id="promoOverlay">
+<!--         <div class="as-promo-overlay" id="promoOverlay">
             <div class="as-promo-banner">Current Promotions</div>
             <div class="as-promo-modal">
                 <button class="as-promo-close" id="promoClose" aria-label="Close promotion">&times;</button>
-                <div class="as-promo-slides" id="promoSlides">
+                <div class="as-promo-slides" id="promoSlides"> -->
 <!--                     <div class="as-promo-slide">
                         <img src="assets/img/spring-sound-bath.png" alt="New Moon Reiki Sound Bath - April 17th, 2026" width="600" height="1073">
                     </div> -->
 <!--                     <div class="as-promo-slide">
                         <a href="#" onclick="return false;" data-gift-card><img src="assets/img/fourth-of-july-promo.png" alt="4th of July Promo"></a>
                     </div> -->
-                    <div class="as-promo-slide">
+<!--                     <div class="as-promo-slide">
                         <img src="assets/img/twofortuesday.jpg" alt="Two for Tuesday promotion at Amber &amp; Sage">
-                    </div>
-                </div>
+                    </div> -->
+<!--                 </div>
                 <button class="as-promo-arrow as-promo-prev" aria-label="Previous">&#8249;</button>
                 <button class="as-promo-arrow as-promo-next" aria-label="Next">&#8250;</button>
                 <div class="as-promo-dots" id="promoDots"></div>
             </div>
-        </div>
+        </div> -->
 
         <!-- ===== SCRIPTS ===== -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
