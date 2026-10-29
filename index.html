@@ -2227,8 +2227,8 @@
                             <a href="#" onclick="return false;" class="book-btn" data-category="16">Lash &amp; Brows</a>
                             <a href="#" onclick="return false;" class="book-btn" data-category="13">Reiki</a>
                         </div>
-                        <a href="#shop" onclick="return false;">Shop our retail products online</a>
-                        <a href="#same-day" onclick="return false;">Looking for a same-day appointment?</a>
+                        <a href="#shop">Shop our retail products online</a>
+                        <a href="#same-day">Looking for a same-day appointment?</a>
                         <a href="#" data-calendoula-form-button="ertZYf">Planning a party or event?</a>
                     </li>
                     <li class="as-nav-services">
@@ -2276,8 +2276,8 @@
                 <a href="#" onclick="return false;" class="book-btn" data-category="16">Lash & Brows</a>
                 <a href="#" onclick="return false;" class="book-btn" data-category="13">Reiki</a>
                 <!-- <a href="#" onclick="return false;" class="book-btn">Yoga</a> -->
-                <a href="#shop" onclick="return false;">Shop our retail products online</a>
-                <a href="#same-day" onclick="return false;">Looking for a same-day appointment?</a>
+                <a href="#shop">Shop our retail products online</a>
+                <a href="#same-day">Looking for a same-day appointment?</a>
                 <a href="#" data-calendoula-form-button="ertZYf">Planning a party or event?</a>
             </div>
         </div>
@@ -3103,89 +3103,94 @@
             }
 
             // Promo modal + carousel
-            const promoOverlay = document.getElementById('promoOverlay');
-            const promoClose = document.getElementById('promoClose');
-            const promoNavLink = document.getElementById('promoNavLink');
-            const promoSlides = document.getElementById('promoSlides');
-            const promoDotsContainer = document.getElementById('promoDots');
-            const promoSlideEls = promoSlides.querySelectorAll('.as-promo-slide');
-            const promoSlideCount = promoSlideEls.length;
-            let promoSlide = 0;
-            let promoTimer = null;
+            // Skip when the promo modal markup is commented out, so the scripts below still run
+            if (document.getElementById('promoOverlay')) {
+                const promoOverlay = document.getElementById('promoOverlay');
+                const promoClose = document.getElementById('promoClose');
+                const promoNavLink = document.getElementById('promoNavLink');
+                const promoSlides = document.getElementById('promoSlides');
+                const promoDotsContainer = document.getElementById('promoDots');
+                const promoSlideEls = promoSlides.querySelectorAll('.as-promo-slide');
+                const promoSlideCount = promoSlideEls.length;
+                let promoSlide = 0;
+                let promoTimer = null;
 
-            // Auto-generate dots and show/hide arrows based on slide count
-            const promoArrows = document.querySelectorAll('.as-promo-prev, .as-promo-next');
-            if (promoSlideCount <= 1) {
-                promoArrows.forEach(a => a.style.display = 'none');
-            }
-            for (let i = 0; i < promoSlideCount; i++) {
-                const dot = document.createElement('button');
-                dot.className = 'as-promo-dot' + (i === 0 ? ' active' : '');
-                promoDotsContainer.appendChild(dot);
-            }
-            const promoDots = document.querySelectorAll('.as-promo-dot');
+                // Auto-generate dots and show/hide arrows based on slide count
+                const promoArrows = document.querySelectorAll('.as-promo-prev, .as-promo-next');
+                if (promoSlideCount <= 1) {
+                    promoArrows.forEach(a => a.style.display = 'none');
+                }
+                for (let i = 0; i < promoSlideCount; i++) {
+                    const dot = document.createElement('button');
+                    dot.className = 'as-promo-dot' + (i === 0 ? ' active' : '');
+                    promoDotsContainer.appendChild(dot);
+                }
+                const promoDots = document.querySelectorAll('.as-promo-dot');
 
-            function goToPromoSlide(i) {
-                promoSlide = ((i % promoSlideCount) + promoSlideCount) % promoSlideCount;
-                promoSlides.style.transform = 'translateX(-' + (promoSlide * 100) + '%)';
-                promoDots.forEach((d, idx) => d.classList.toggle('active', idx === promoSlide));
-            }
+                function goToPromoSlide(i) {
+                    promoSlide = ((i % promoSlideCount) + promoSlideCount) % promoSlideCount;
+                    promoSlides.style.transform = 'translateX(-' + (promoSlide * 100) + '%)';
+                    promoDots.forEach((d, idx) => d.classList.toggle('active', idx === promoSlide));
+                }
 
-            function startPromoTimer() {
-                stopPromoTimer();
-                promoTimer = setInterval(() => goToPromoSlide(promoSlide + 1), 4000);
-            }
-            function stopPromoTimer() {
-                if (promoTimer) { clearInterval(promoTimer); promoTimer = null; }
-            }
+                function startPromoTimer() {
+                    stopPromoTimer();
+                    promoTimer = setInterval(() => goToPromoSlide(promoSlide + 1), 4000);
+                }
+                function stopPromoTimer() {
+                    if (promoTimer) { clearInterval(promoTimer); promoTimer = null; }
+                }
 
-            function openPromo() {
-                goToPromoSlide(0);
-                promoOverlay.classList.add('open');
-                document.body.style.overflow = 'hidden';
-                startPromoTimer();
-            }
-            function closePromo() {
-                promoOverlay.classList.remove('open');
-                document.body.style.overflow = '';
-                stopPromoTimer();
-                localStorage.setItem('promoDismissed5', Date.now().toString());
-            }
+                function openPromo() {
+                    goToPromoSlide(0);
+                    promoOverlay.classList.add('open');
+                    document.body.style.overflow = 'hidden';
+                    startPromoTimer();
+                }
+                function closePromo() {
+                    promoOverlay.classList.remove('open');
+                    document.body.style.overflow = '';
+                    stopPromoTimer();
+                    localStorage.setItem('promoDismissed5', Date.now().toString());
+                }
 
-            document.querySelector('.as-promo-prev').addEventListener('click', () => {
-                goToPromoSlide(promoSlide - 1);
-                startPromoTimer();
-            });
-            document.querySelector('.as-promo-next').addEventListener('click', () => {
-                goToPromoSlide(promoSlide + 1);
-                startPromoTimer();
-            });
-            promoDots.forEach((dot, idx) => {
-                dot.addEventListener('click', () => { goToPromoSlide(idx); startPromoTimer(); });
-            });
+                document.querySelector('.as-promo-prev').addEventListener('click', () => {
+                    goToPromoSlide(promoSlide - 1);
+                    startPromoTimer();
+                });
+                document.querySelector('.as-promo-next').addEventListener('click', () => {
+                    goToPromoSlide(promoSlide + 1);
+                    startPromoTimer();
+                });
+                promoDots.forEach((dot, idx) => {
+                    dot.addEventListener('click', () => { goToPromoSlide(idx); startPromoTimer(); });
+                });
 
-            promoClose.addEventListener('click', closePromo);
-            promoOverlay.addEventListener('click', (e) => {
-                if (e.target === promoOverlay) closePromo();
-            });
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape' && promoOverlay.classList.contains('open')) closePromo();
-            });
-            promoNavLink.addEventListener('click', (e) => {
-                e.preventDefault();
-                openPromo();
-            });
+                promoClose.addEventListener('click', closePromo);
+                promoOverlay.addEventListener('click', (e) => {
+                    if (e.target === promoOverlay) closePromo();
+                });
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape' && promoOverlay.classList.contains('open')) closePromo();
+                });
+                promoNavLink?.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    openPromo();
+                });
 
-            const promoDismissed2At = localStorage.getItem('promoDismissed5');
-            const promoExpired = !promoDismissed2At || (Date.now() - Number(promoDismissed2At)) > 14 * 24 * 60 * 60 * 1000;
-            if (promoExpired) {
-                setTimeout(openPromo, 1500);
+                const promoDismissed2At = localStorage.getItem('promoDismissed5');
+                const promoExpired = !promoDismissed2At || (Date.now() - Number(promoDismissed2At)) > 14 * 24 * 60 * 60 * 1000;
+                if (promoExpired) {
+                    setTimeout(openPromo, 1500);
+                }
             }
 
             // Smooth scroll
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function(e) {
-                    const target = document.querySelector(this.getAttribute('href'));
+                    const href = this.getAttribute('href');
+                    if (href === '#') return;
+                    const target = document.querySelector(href);
                     if (target) {
                         e.preventDefault();
                         const offset = 80;
