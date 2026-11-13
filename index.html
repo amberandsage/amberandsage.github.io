@@ -1736,6 +1736,77 @@
             }
             .as-nb-banner a:hover { border-color: #fff; }
 
+            /* ===== CAREERS BANNER ===== */
+            .as-careers-banner {
+                background: var(--sage-deep);
+                padding: 40px 24px;
+            }
+            .as-careers-inner {
+                max-width: 1000px;
+                margin: 0 auto;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 32px;
+            }
+            .as-careers-eyebrow {
+                display: inline-flex;
+                align-items: center;
+                gap: 6px;
+                font-family: 'Montserrat', sans-serif;
+                font-size: 0.68rem;
+                font-weight: 600;
+                letter-spacing: 2.5px;
+                text-transform: uppercase;
+                color: var(--sage-pale);
+                margin-bottom: 8px;
+            }
+            .as-careers-banner h3 {
+                font-family: 'Cormorant Garamond', serif;
+                font-size: 2rem;
+                font-weight: 500;
+                color: var(--cream);
+                margin: 0 0 6px;
+                line-height: 1.15;
+            }
+            .as-careers-banner p {
+                font-family: 'Montserrat', sans-serif;
+                font-size: 0.85rem;
+                font-weight: 300;
+                color: rgba(250, 247, 242, 0.8);
+                margin: 0;
+                max-width: 520px;
+            }
+            .as-careers-btn {
+                flex-shrink: 0;
+                display: inline-flex;
+                align-items: center;
+                gap: 10px;
+                padding: 14px 30px;
+                border-radius: 999px;
+                background: var(--cream);
+                color: var(--sage-deep);
+                font-family: 'Montserrat', sans-serif;
+                font-size: 0.78rem;
+                font-weight: 600;
+                letter-spacing: 1.5px;
+                text-transform: uppercase;
+                text-decoration: none;
+                transition: background 0.25s, color 0.25s, transform 0.25s;
+            }
+            .as-careers-btn i { font-size: 0.7rem; transition: transform 0.25s; }
+            .as-careers-btn:hover {
+                background: var(--terracotta-light);
+                color: #fff;
+                transform: translateY(-1px);
+            }
+            .as-careers-btn:hover i { transform: translateX(3px); }
+            @media (max-width: 700px) {
+                .as-careers-banner { padding: 36px 20px; }
+                .as-careers-inner { flex-direction: column; text-align: center; gap: 20px; }
+                .as-careers-banner h3 { font-size: 1.65rem; }
+            }
+
             /* ===== FOOTER ===== */
             .as-footer {
                 background: var(--charcoal);
@@ -2911,6 +2982,18 @@
         <div class="as-nb-banner">
             <p>Have a Natural Body gift card? <a href="https://amberandsagespa.com/natural-body-gift-cards.html">Click here</a> for more information.</p>
         </div>
+
+        <!-- ===== CAREERS BANNER ===== -->
+        <section class="as-careers-banner" aria-labelledby="asCareersTitle">
+            <div class="as-careers-inner">
+                <div class="as-careers-text">
+                    <span class="as-careers-eyebrow"><i class="fas fa-leaf"></i> Careers</span>
+                    <h3 id="asCareersTitle">Join the Amber &amp; Sage team</h3>
+                    <p>We&rsquo;re always looking for warm, talented people who love helping others feel their best.</p>
+                </div>
+                <a class="as-careers-btn" href="https://mycalendoula.com/16858588/forms/QpPaAJ/" target="_blank" rel="noopener">Apply now <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </section>
         </main>
 
         <!-- ===== BACK TO TOP ===== -->
