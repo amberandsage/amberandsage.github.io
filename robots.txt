@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /extra-sections.html
 
 Sitemap: https://amberandsagespa.com/sitemap.xml
