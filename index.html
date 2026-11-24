@@ -2295,10 +2295,15 @@
             /* Calendoula promo cards in the full-site Current Promotions section */
             .as-promo-cards { max-width: 720px; margin: 0 auto 40px; }
 
-            /* ===== CALENDOULA SEARCH BAR (under nav, full site + quick view) ===== */
-            .as-search-bar { background: var(--cream-dark); border-bottom: 1px solid rgba(0,0,0,0.04); }
-            .as-search-bar > div { max-width: 720px; margin: 0 auto; padding: 12px 20px; }
-            .as-search-bar > div:empty { padding: 0; }
+            /* ===== CALENDOULA SEARCH =====
+               Calendoula's default size, label and hint, floating over the top of the hero image
+               on the full site and the quick view. Only the label colour and shadow are changed. */
+            .as-search-float { position: absolute; top: 28px; left: 0; right: 0; z-index: 3; padding: 0 20px; }
+            .as-search-hero { max-width: 640px; margin: 0 auto; text-align: left; }
+            .as-search-hero .pp-ais { margin: 0; }
+            .as-search-hero .pp-ais-label { color: var(--cream); text-shadow: 0 1px 6px rgba(0, 0, 0, 0.35); }
+            .as-search-hero .pp-ais-row { box-shadow: 0 6px 24px rgba(0, 0, 0, 0.25); }
+            .asm-search { margin: -20px 0 28px; }
 
             /* ===== MOBILE QUICK-BOOK HOME =====
                Phones (portrait <768px, or landscape touch screens <=500px tall) see a
@@ -2314,7 +2319,6 @@
                 html.as-m .as-announcement-warning,
                 html.as-m .as-nav,
                 html.as-m .as-quicklinks,
-                html.as-m body > .as-search-bar,
                 html.as-m #main-content,
                 html.as-m .as-footer,
                 html.as-m .as-back-top { display: none !important; }
@@ -2452,10 +2456,10 @@
                     <button type="button" class="asm-nav-link asm-go-full">Full site &rarr;</button>
                 </div>
             </div>
-            <div class="as-search-bar"><div data-calendoula-search></div></div>
 
             <div class="asm-hero">
                 <div class="asm-wrap">
+                    <div class="asm-search"><div class="as-search-hero" data-calendoula-search></div></div>
                     <span class="asm-eyebrow">Chattanooga's Holistic Day Spa</span>
                     <p class="asm-h1">Where Stillness<br>Meets <em>Restoration</em></p>
                     <p class="asm-status" id="asmStatus"><span class="asm-dot"></span>Open daily &middot; 1202 Hixson Pike</p>
@@ -2601,17 +2605,16 @@
             </div>
         </div>
 
-        <!-- Calendoula AI search ("Describe what you're looking for") -->
-        <div class="as-search-bar"><div data-calendoula-search></div></div>
-
         <div class="as-announcement">
-            <button class="as-nav-cta menu-btn"><span>Click Here to Full Our Full Menu & Prices<span></button>
+            <button class="as-nav-cta menu-btn"><span>Click Here to Full Our Full Menu & Prices</span></button>
         </div>
 
         <!-- ===== HERO ===== -->
         <main id="main-content">
         <header class="as-hero" id="hero">
             <div class="as-hero-bg"></div>
+            <!-- Calendoula AI search, floating over the top of the hero -->
+            <div class="as-search-float"><div class="as-search-hero" data-calendoula-search></div></div>
             <div class="as-hero-content">
                 <span class="as-hero-eyebrow">Chattanooga's Holistic Day Spa</span>
                 <h1>Where Stillness<br>Meets <em>Restoration</em></h1>
