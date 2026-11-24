@@ -1485,6 +1485,18 @@
                 filter: saturate(1.1);
                 transform: scale(1.05);
             }
+            .as-team-member-img-wrap.book-btn { cursor: pointer; }
+            .as-team-book {
+                display: table; margin: 10px auto 0; padding: 4px 0;
+                background: none; border: 0; cursor: pointer;
+                border-bottom: 1px solid var(--sage-muted);
+                font-family: 'Montserrat', sans-serif;
+                font-size: 0.66rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase;
+                color: var(--sage-deep);
+                transition: color 0.3s, border-color 0.3s;
+            }
+            .as-team-book:hover { color: var(--terracotta); border-color: var(--terracotta); }
+            @media (max-width: 480px) { .as-team-book { font-size: 0.58rem; letter-spacing: 0.8px; white-space: nowrap; } }
             .as-team-member h4 {
                 font-size: 1.3rem;
                 color: var(--charcoal);
@@ -2279,10 +2291,231 @@
                 opacity: 1;
                 transform: translateY(0);
             }
+
+            /* Calendoula promo cards in the full-site Current Promotions section */
+            .as-promo-cards { max-width: 720px; margin: 0 auto 40px; }
+
+            /* ===== CALENDOULA SEARCH BAR (under nav, full site + quick view) ===== */
+            .as-search-bar { background: var(--cream-dark); border-bottom: 1px solid rgba(0,0,0,0.04); }
+            .as-search-bar > div { max-width: 720px; margin: 0 auto; padding: 12px 20px; }
+            .as-search-bar > div:empty { padding: 0; }
+
+            /* ===== MOBILE QUICK-BOOK HOME =====
+               Phones (portrait <768px, or landscape touch screens <=500px tall) see a
+               booking-first screen styled like the full site; the full site is still in
+               the page and one tap away ("View the full website"). The choice is
+               remembered in localStorage('asView'). Desktop/tablets never see this.
+               Keep this media query in sync with the <head> script below. */
+            #asMobileHome, .asm-return { display: none; }
+            @media (max-width: 767px), (pointer: coarse) and (max-height: 500px) {
+                html.as-m #asMobileHome { display: block; }
+                html.as-m .as-skip-link,
+                html.as-m .as-announcement,
+                html.as-m .as-announcement-warning,
+                html.as-m .as-nav,
+                html.as-m .as-quicklinks,
+                html.as-m body > .as-search-bar,
+                html.as-m #main-content,
+                html.as-m .as-footer,
+                html.as-m .as-back-top { display: none !important; }
+                html.as-m .as-sticky-mobile { display: flex; }
+                html.as-m body { padding-bottom: 64px; }
+                html:not(.as-m) .asm-return { display: block; }
+            }
+            .asm { background: var(--cream); }
+            .asm-wrap { max-width: 560px; margin: 0 auto; padding: 0 20px; }
+            .asm-nav {
+                position: sticky; top: 0; z-index: 50;
+                background: rgba(250, 247, 242, 0.92);
+                backdrop-filter: blur(24px) saturate(180%);
+                -webkit-backdrop-filter: blur(24px) saturate(180%);
+                border-bottom: 1px solid rgba(0,0,0,0.05);
+            }
+            .asm-nav .asm-wrap { display: flex; align-items: center; gap: 10px; height: 64px; }
+            .asm-nav img { height: 40px; width: auto; }
+            .asm-nav strong {
+                flex: 1;
+                font-family: 'Cormorant Garamond', serif;
+                font-size: 1.35rem; font-weight: 600; letter-spacing: 0.5px; color: var(--sage-deep);
+            }
+            .asm-nav-link {
+                background: none; border: 0; padding: 8px 0;
+                font-family: 'Montserrat', sans-serif;
+                font-size: 0.62rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
+                color: var(--sage-deep);
+            }
+            .asm-hero {
+                position: relative; overflow: hidden; text-align: center;
+                padding: 44px 0 40px;
+                background: var(--charcoal) url('assets/img/webp/header-bg.webp') center / cover;
+                color: #fff;
+            }
+            /* Same smoked sage overlay as the full-site .as-hero::before */
+            .asm-hero::before {
+                content: ""; position: absolute; inset: 0;
+                background: linear-gradient(160deg, rgba(42, 40, 37, 0.72) 0%, rgba(74, 93, 77, 0.50) 40%, rgba(42, 40, 37, 0.62) 100%);
+            }
+            .asm-hero .asm-wrap { position: relative; }
+            .asm-eyebrow {
+                display: block; margin-bottom: 14px;
+                font-size: 0.64rem; font-weight: 500; letter-spacing: 4px; text-transform: uppercase;
+                color: var(--sage-pale);
+            }
+            .asm-h1 {
+                font-family: 'Cormorant Garamond', serif;
+                font-size: 2.4rem; font-weight: 300; line-height: 1.1;
+                margin-bottom: 14px; color: #fff;
+            }
+            .asm-h1 em { font-style: italic; color: var(--terracotta-light); }
+            .asm-status { font-size: 0.78rem; letter-spacing: 0.04em; color: rgba(250, 247, 242, 0.85); margin-bottom: 22px; }
+            .asm-dot {
+                display: inline-block; width: 8px; height: 8px; border-radius: 50%;
+                background: var(--sage-muted); margin-right: 6px; vertical-align: 1px;
+                box-shadow: 0 0 0 3px rgba(168, 184, 154, 0.25);
+            }
+            .asm-status.closed .asm-dot { background: var(--light-gray); box-shadow: none; }
+            .asm-hero .as-btn-primary { width: 100%; justify-content: center; padding: 18px 20px; }
+            .asm-hero-row { display: flex; gap: 10px; margin-top: 10px; }
+            .asm-hero-row .as-btn-secondary { flex: 1; justify-content: center; padding: 14px 10px; font-size: 0.68rem; }
+            .asm-manage {
+                display: inline-block; margin-top: 16px; background: none; border: 0;
+                font-family: 'Montserrat', sans-serif; font-size: 0.74rem; color: rgba(250, 247, 242, 0.85);
+                border-bottom: 1px solid rgba(250, 247, 242, 0.4); padding-bottom: 2px;
+            }
+            .asm-sec { padding: 36px 0 8px; }
+            .asm-sec-head { text-align: center; margin-bottom: 18px; }
+            .asm-sec-head .as-section-eyebrow { margin-bottom: 8px; letter-spacing: 4px; }
+            .asm-sec-head .asm-title {
+                font-family: 'Cormorant Garamond', serif;
+                font-size: 2rem; font-weight: 400; color: var(--charcoal);
+            }
+            .asm-sec-head .as-line { margin: 12px auto 0; }
+            .asm-gift {
+                display: flex; align-items: center; gap: 16px;
+                padding: 20px; background: var(--warm-white);
+                border: 1px solid var(--cream-dark);
+            }
+            .asm-gift i { font-size: 1.6rem; color: var(--terracotta); }
+            .asm-gift p { flex: 1; font-size: 0.82rem; color: var(--warm-gray); line-height: 1.5; }
+            .asm-gift strong { display: block; font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 600; color: var(--charcoal); }
+            .asm-gift .as-btn-primary { padding: 12px 16px; font-size: 0.65rem; letter-spacing: 1.5px; }
+            .asm-info {
+                margin-top: 28px; text-align: center;
+                font-size: 0.8rem; color: var(--warm-gray); line-height: 1.9;
+            }
+            .asm-info a { color: var(--sage-deep); text-decoration: none; border-bottom: 1px solid var(--sage-muted); }
+            .asm-stars { color: var(--gold); letter-spacing: 1px; margin-right: 4px; }
+            .asm-full {
+                display: block; width: 100%; margin: 28px 0 0; padding: 16px;
+                background: none; border: 1.5px solid var(--sage-muted);
+                font-family: 'Montserrat', sans-serif;
+                font-size: 0.7rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
+                color: var(--sage-deep);
+            }
+            .asm-foot { padding-bottom: 28px; }
+            .asm-return { background: var(--sage-deep); text-align: center; }
+            .asm-return button {
+                width: 100%; padding: 10px 16px; border: 0; background: none; color: #fff;
+                font-family: 'Montserrat', sans-serif; font-size: 0.7rem; font-weight: 600;
+                letter-spacing: 2px; text-transform: uppercase;
+            }
         </style>
+        <script>
+            // Decide quick-book vs full site before first paint (no flash).
+            // ?full=1 / ?quick=1 force a mode; any #anchor deep link shows the full site for that visit.
+            (function () {
+                try {
+                    var q = location.search, h = location.hash;
+                    if (/[?&]full=1/.test(q)) localStorage.setItem('asView', 'full');
+                    if (/[?&]quick=1/.test(q)) localStorage.removeItem('asView');
+                    var phone = window.matchMedia('(max-width: 767px), (pointer: coarse) and (max-height: 500px)').matches;
+                    var wantsFull = localStorage.getItem('asView') === 'full';
+                    var deepLink = h && h.length > 1 && h !== '#page-top';
+                    if (phone && !wantsFull && !deepLink) document.documentElement.classList.add('as-m');
+                } catch (e) {}
+            })();
+        </script>
     </head>
 
     <body id="page-top">
+
+        <!-- Calendoula welcome-back banner: only renders for returning clients this device recognizes.
+             Sits above both the mobile quick view and the full site (Calendoula uses only the first one on a page). -->
+        <div data-calendoula-welcome></div>
+
+        <!-- ===== MOBILE QUICK-BOOK HOME (phones only, see .asm CSS) ===== -->
+        <div id="asMobileHome" class="asm">
+            <div class="asm-nav">
+                <div class="asm-wrap">
+                    <img src="assets/img/webp/as_logo.webp" alt="Amber &amp; Sage Spa" width="40" height="40">
+                    <strong>Amber &amp; Sage</strong>
+                    <button type="button" class="asm-nav-link asm-go-full">Full site &rarr;</button>
+                </div>
+            </div>
+            <div class="as-search-bar"><div data-calendoula-search></div></div>
+
+            <div class="asm-hero">
+                <div class="asm-wrap">
+                    <span class="asm-eyebrow">Chattanooga's Holistic Day Spa</span>
+                    <p class="asm-h1">Where Stillness<br>Meets <em>Restoration</em></p>
+                    <p class="asm-status" id="asmStatus"><span class="asm-dot"></span>Open daily &middot; 1202 Hixson Pike</p>
+                    <button type="button" class="as-btn-primary book-btn"><span>Book Your Escape</span></button>
+                    <div class="asm-hero-row">
+                        <a href="#" class="as-btn-secondary as-protected" data-t="tel" data-p="423-250-7243"><i class="fas fa-phone"></i> Call</a>
+                        <a href="#" class="as-btn-secondary as-protected" data-t="sms" data-p="423-250-7243"><i class="fas fa-comment-dots"></i> Text</a>
+                    </div>
+                    <button type="button" class="asm-manage" data-portal>Already booked? View or change my appointment</button>
+                </div>
+            </div>
+
+            <div class="asm-sec">
+                <div class="asm-wrap">
+                    <div data-calendoula-today></div>
+                </div>
+            </div>
+
+            <div class="asm-sec">
+                <div class="asm-wrap">
+                    <div class="asm-sec-head">
+                        <span class="as-section-eyebrow">Current Promotions</span>
+                        <p class="asm-title">Don't Miss This</p>
+                        <div class="as-line"></div>
+                    </div>
+                    <div data-calendoula-cards data-size="lg">
+                      <div data-calendoula-card data-bundle="3"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="asm-sec">
+                <div class="asm-wrap">
+                    <div class="asm-sec-head">
+                        <span class="as-section-eyebrow">Menu &amp; Prices</span>
+                        <p class="asm-title">Find Your Treatment</p>
+                        <div class="as-line"></div>
+                    </div>
+                    <div data-calendoula-menu></div>
+                </div>
+            </div>
+
+            <div class="asm-sec asm-foot">
+                <div class="asm-wrap">
+                    <div class="asm-gift">
+                        <i class="fas fa-gift"></i>
+                        <p><strong>Gift Cards</strong>Any amount, delivered instantly by email.</p>
+                        <button type="button" class="as-btn-primary" data-gift-card><span>Send one</span></button>
+                    </div>
+                    <div class="asm-info">
+                        <a href="https://www.google.com/search?q=amber+and+sage+spa#lrd=0x88605ffc8b114b0f:0x4a0c674beb7d9af5,1,,,," target="_blank" rel="noopener" style="border: 0;"><span class="asm-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>5-Star Google Reviews</a><br>
+                        <a href="https://maps.app.goo.gl/nJQpYP1JWsEbEmgj7">1202 Hixson Pike, Chattanooga</a><br>
+                        Mon&ndash;Sat 9&ndash;7 &middot; Sun 10&ndash;7
+                    </div>
+                    <button type="button" class="asm-full asm-go-full">View the full website &rarr;</button>
+                </div>
+            </div>
+        </div>
+        <!-- Phones viewing the full site get a way back to quick booking -->
+        <div class="asm-return"><button type="button" id="asmQuick"><i class="fas fa-bolt"></i>&nbsp; Switch to quick booking</button></div>
 
         <!-- Skip to main content (Accessibility) -->
         <a href="#main-content" class="as-skip-link">Skip to main content</a>
@@ -2321,7 +2554,7 @@
                         <a href="#services">Services <i class="fas fa-chevron-down" style="font-size:0.55rem; margin-left:3px; opacity:0.5;"></i></a>
                         <div class="as-nav-dropdown">
                             <a href="#" onclick="return false;" class="book-btn" data-category="14"><i class="fas fa-sparkles"></i> Facials</a>
-                            <a href="#" onclick="return false;" class="book-btn" data-category="15"><i class="fas fa-hand-holding-heart"></i> Massage</a>
+                            <a href="#" onclick="return false;" class="book-btn" data-category="5"><i class="fas fa-hand-holding-heart"></i> Massage</a>
                             <a href="#" onclick="return false;" class="book-btn" data-category="1"><i class="fas fa-eye"></i> Waxing</a>
                             <a href="#" onclick="return false;" class="book-btn" data-category="16"><i class="fas fa-eye"></i> Brows & Lashes</a>
                             <a href="#" onclick="return false;" class="book-btn" data-category="13"><i class="fas fa-yin-yang"></i> Reiki & Energy</a>
@@ -2367,6 +2600,9 @@
                 <a href="#" data-calendoula-form-button="ertZYf">Planning a party or event?</a>
             </div>
         </div>
+
+        <!-- Calendoula AI search ("Describe what you're looking for") -->
+        <div class="as-search-bar"><div data-calendoula-search></div></div>
 
         <div class="as-announcement">
             <button class="as-nav-cta menu-btn"><span>Click Here to Full Our Full Menu & Prices<span></button>
@@ -2459,6 +2695,11 @@
                     </a>
                 </div> -->
 
+                <div class="as-promo-cards">
+                    <div data-calendoula-cards data-size="lg">
+                      <div data-calendoula-card data-bundle="3"></div>
+                    </div>
+                </div>
                 <div class="as-reveal" style="text-align: center;"><script src="https://calendoula.app/16858588/widget.js"></script>
                     Interested in exclusive offers and promotions? Peridically we send out non-public promotions and would love for you to be included. And if you're the spontaneous type, we will sometimes offer same-day or next-day direct offers to help us fill gaps in the schedule. 
                     <br>
@@ -2780,7 +3021,7 @@
                 </div>
                 <div class="as-team-grid as-stagger">
                     <div class="as-team-member">
-                        <div class="as-team-member-img-wrap">
+                        <div class="as-team-member-img-wrap book-btn" data-staff="2">
                             <img class="as-team-member-img" loading="lazy" src="assets/img/team/webp/carly1.webp" alt="Carly" width="365" height="365">
                         </div>
                         <h4>Carly</h4>
@@ -2788,13 +3029,15 @@
                         <div class="as-team-social">
                             <a href="https://www.instagram.com/carlylunaesthetics_/" aria-label="Carly Instagram"><i class="fab fa-instagram"></i></a>
                         </div>
+                        <button type="button" class="as-team-book book-btn" data-staff="2">Book with Carly</button>
                     </div>
                     <div class="as-team-member">
-                        <div class="as-team-member-img-wrap">
+                        <div class="as-team-member-img-wrap book-btn" data-staff="8">
                             <img class="as-team-member-img" loading="lazy" src="assets/img/team/webp/rebekah.webp" alt="Rebekah" width="365" height="365">
                         </div>
                         <h4>Rebekah</h4>
                         <span class="as-team-role">Esthetician</span>
+                        <button type="button" class="as-team-book book-btn" data-staff="8">Book with Rebekah</button>
                     </div>
 <!--                     <div class="as-team-member">
                         <div class="as-team-member-img-wrap">
@@ -2804,11 +3047,12 @@
                         <span class="as-team-role">Massage Therapist</span>
                     </div> -->
                     <div class="as-team-member">
-                        <div class="as-team-member-img-wrap">
+                        <div class="as-team-member-img-wrap book-btn" data-staff="6">
                             <img class="as-team-member-img" loading="lazy" src="assets/img/team/webp/jade1.webp" alt="Jade" width="365" height="365">
                         </div>
                         <h4>Jade</h4>
                         <span class="as-team-role">Massage Therapist</span>
+                        <button type="button" class="as-team-book book-btn" data-staff="6">Book with Jade</button>
                     </div>
 <!--                     <div class="as-team-member">
                         <div class="as-team-member-img-wrap">
@@ -2818,49 +3062,55 @@
                         <span class="as-team-role">Massage Therapist</span>
                     </div> -->
                     <div class="as-team-member">
-                        <div class="as-team-member-img-wrap">
+                        <div class="as-team-member-img-wrap book-btn" data-staff="7">
                             <img class="as-team-member-img" loading="lazy" src="assets/img/team/webp/marianna.webp" alt="Mariana" width="365" height="365">
                         </div>
                         <h4>Mariana</h4>
                         <span class="as-team-role">Massage Therapist</span><br>
                         <span class="as-team-role">Bi-lingual (English/Spanish)</span>
+                        <button type="button" class="as-team-book book-btn" data-staff="7">Book with Mariana</button>
                     </div>
                     <div class="as-team-member">
-                        <div class="as-team-member-img-wrap">
+                        <div class="as-team-member-img-wrap book-btn" data-staff="5">
                             <img class="as-team-member-img" loading="lazy" src="assets/img/team/webp/mailen.webp" alt="Mailen" width="365" height="365">
                         </div>
                         <h4>Mailen</h4>
                         <span class="as-team-role">Massage Therapist</span><br>
                         <span class="as-team-role">Bi-lingual (English/Spanish)</span>
+                        <button type="button" class="as-team-book book-btn" data-staff="5">Book with Mailen</button>
                     </div>
                     <div class="as-team-member">
-                        <div class="as-team-member-img-wrap">
+                        <div class="as-team-member-img-wrap book-btn" data-staff="9">
                             <img class="as-team-member-img" loading="lazy" src="assets/img/team/webp/will.webp" alt="William" width="365" height="365">
                         </div>
                         <h4>William</h4>
                         <span class="as-team-role">Massage Therapist</span><br>
                         <span class="as-team-role">Graston Service Provider</span>
+                        <button type="button" class="as-team-book book-btn" data-staff="9">Book with William</button>
                     </div>
                     <div class="as-team-member">
-                        <div class="as-team-member-img-wrap">
+                        <div class="as-team-member-img-wrap book-btn" data-staff="4">
                             <img class="as-team-member-img" loading="lazy" src="assets/img/team/webp/kayla.webp" alt="Kayla" width="365" height="365">
                         </div>
                         <h4>Kayla</h4>
                         <span class="as-team-role">Massage Therapist & Sound Healer</span>
+                        <button type="button" class="as-team-book book-btn" data-staff="4">Book with Kayla</button>
                     </div>
                     <div class="as-team-member">
-                        <div class="as-team-member-img-wrap">
+                        <div class="as-team-member-img-wrap book-btn" data-staff="13">
                             <img class="as-team-member-img" loading="lazy" src="assets/img/team/webp/1-1.webp" alt="Sarah" width="365" height="365">
                         </div>
                         <h4>Sarah</h4>
                         <span class="as-team-role">Massage Therapist & Reiki</span>
+                        <button type="button" class="as-team-book book-btn" data-staff="13">Book with Sarah</button>
                     </div>
                     <div class="as-team-member">
-                        <div class="as-team-member-img-wrap">
-                            <img class="as-team-member-img" loading="lazy" src="assets/img/team/catherine2.png" alt="Sarah" width="365" height="365">
+                        <div class="as-team-member-img-wrap book-btn" data-staff="42">
+                            <img class="as-team-member-img" loading="lazy" src="assets/img/team/catherine2.png" alt="Catherine" width="365" height="365">
                         </div>
                         <h4>Catherine</h4>
                         <span class="as-team-role">Massage Therapist</span>
+                        <button type="button" class="as-team-book book-btn" data-staff="42">Book with Catherine</button>
                     </div>
     <!--                 <div class="as-team-member">
                         <div class="as-team-member-img-wrap">
@@ -3056,7 +3306,7 @@
 
         <!-- ===== MOBILE STICKY CTA ===== -->
         <div class="as-sticky-mobile">
-            <a href="#" onclick="return false;" class="book-btn"><span>Book Now</span></a>
+            <a href="#" onclick="return false;" class="book-btn as-sticky-book"><span>Book Now</span></a>
             <a href="#" class="as-sticky-text as-protected" data-t="sms" data-p="423-250-7243"><i class="fas fa-comment-dots"></i> Text Us</a>
         </div>
 
@@ -3101,6 +3351,47 @@
             document.querySelectorAll('.as-p-email').forEach(el => {
                 el.textContent = el.dataset.u + '@' + el.dataset.d;
             });
+
+            // Mobile quick-book home: switch views + live open/closed status
+            (function () {
+                const root = document.documentElement;
+                const track = (mode) => { if (window.gtag) gtag('event', 'mobile_view_switch', { view_mode: mode }); };
+                document.querySelectorAll('.asm-go-full').forEach(btn => btn.addEventListener('click', () => {
+                    try { localStorage.setItem('asView', 'full'); } catch (e) {}
+                    root.classList.remove('as-m');
+                    window.scrollTo(0, 0);
+                    track('full');
+                }));
+                document.getElementById('asmQuick')?.addEventListener('click', () => {
+                    try { localStorage.removeItem('asView'); } catch (e) {}
+                    root.classList.add('as-m');
+                    window.scrollTo(0, 0);
+                    track('quick');
+                });
+                if (root.classList.contains('as-m') && window.gtag) gtag('event', 'mobile_quick_home_view');
+
+                // Hours (America/New_York): Mon–Sat 9–19, Sun 10–19
+                const status = document.getElementById('asmStatus');
+                if (!status) return;
+                try {
+                    const parts = new Intl.DateTimeFormat('en-US', { timeZone: 'America/New_York', weekday: 'short', hour: 'numeric', minute: 'numeric', hourCycle: 'h23' }).formatToParts(new Date());
+                    const get = (t) => parts.find(p => p.type === t).value;
+                    const day = get('weekday'), h = Number(get('hour')) + Number(get('minute')) / 60;
+                    const opensAt = (d) => d === 'Sun' ? 10 : 9;
+                    const fmt = (hr) => (hr > 12 ? hr - 12 : hr) + (hr >= 12 ? 'pm' : 'am');
+                    let text, closed = false;
+                    if (h >= opensAt(day) && h < 19) {
+                        text = 'Open now &middot; until 7pm';
+                    } else if (h < opensAt(day)) {
+                        text = 'Opens today at ' + fmt(opensAt(day)) + ' &middot; book online anytime'; closed = true;
+                    } else {
+                        const next = day === 'Sat' ? 'Sun' : 'Mon';
+                        text = 'Opens tomorrow at ' + fmt(opensAt(day === 'Sat' ? 'Sun' : next)) + ' &middot; book online anytime'; closed = true;
+                    }
+                    status.innerHTML = '<span class="asm-dot"></span>' + text;
+                    status.classList.toggle('closed', closed);
+                } catch (e) {}
+            })();
 
             // Navbar + quicklinks scroll
             const nav = document.getElementById('asNav');
