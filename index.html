@@ -2279,10 +2279,238 @@
                 opacity: 1;
                 transform: translateY(0);
             }
+
+            /* ===== MOBILE QUICK-BOOK HOME =====
+               Phones (<768px) see a booking-first screen; the full site is still in the
+               page and one tap away ("View full website"). The choice is remembered in
+               localStorage('asView'). Desktop never sees any of this. */
+            #asMobileHome, .asm-return { display: none; }
+            @media (max-width: 767px) {
+                html.as-m #asMobileHome { display: block; }
+                html.as-m .as-skip-link,
+                html.as-m .as-announcement,
+                html.as-m .as-announcement-warning,
+                html.as-m .as-nav,
+                html.as-m .as-quicklinks,
+                html.as-m #main-content,
+                html.as-m .as-footer,
+                html.as-m .as-back-top { display: none !important; }
+                html:not(.as-m) .asm-return { display: block; }
+            }
+            .asm {
+                background: var(--cream);
+                color: var(--charcoal);
+                padding-bottom: 24px;
+                font-family: 'Montserrat', sans-serif;
+            }
+            .asm-top {
+                display: flex; align-items: center; gap: 10px;
+                padding: 12px 16px;
+                background: var(--warm-white);
+                border-bottom: 1px solid var(--cream-dark);
+                position: sticky; top: 0; z-index: 50;
+            }
+            .asm-top img { width: 38px; height: 38px; border-radius: 50%; }
+            .asm-brand { flex: 1; line-height: 1.15; }
+            .asm-brand strong {
+                display: block;
+                font-family: 'Cormorant Garamond', serif;
+                font-size: 1.35rem; font-weight: 600; color: var(--sage-deep);
+            }
+            .asm-brand span { font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--warm-gray); }
+            .asm-icon-btn {
+                width: 44px; height: 44px; border-radius: 50%;
+                display: inline-flex; align-items: center; justify-content: center;
+                background: var(--sage-pale); color: var(--sage-deep);
+                text-decoration: none; font-size: 1rem;
+            }
+            .asm-hero { padding: 22px 16px 8px; }
+            .asm-title {
+                font-family: 'Cormorant Garamond', serif;
+                font-size: 2rem; font-weight: 500; line-height: 1.1;
+                color: var(--charcoal); margin-bottom: 6px;
+            }
+            .asm-title em { color: var(--terracotta); font-style: italic; }
+            .asm-status { font-size: 0.82rem; color: var(--warm-gray); margin-bottom: 16px; }
+            .asm-status .asm-dot {
+                display: inline-block; width: 8px; height: 8px; border-radius: 50%;
+                background: var(--sage-light); margin-right: 6px; vertical-align: 1px;
+            }
+            .asm-status.closed .asm-dot { background: var(--light-gray); }
+            .asm-cta {
+                display: block; width: 100%;
+                padding: 17px 20px;
+                border: 0; border-radius: 14px;
+                background: var(--sage-deep); color: #fff;
+                font-family: 'Montserrat', sans-serif;
+                font-size: 0.95rem; font-weight: 600; letter-spacing: 0.04em;
+                text-align: center; text-decoration: none;
+                box-shadow: 0 6px 18px rgba(74, 93, 77, 0.25);
+            }
+            .asm-cta:active { transform: scale(0.98); }
+            .asm-sublink {
+                display: block; width: 100%; margin-top: 10px;
+                background: none; border: 0; padding: 8px;
+                font-family: 'Montserrat', sans-serif;
+                font-size: 0.8rem; color: var(--sage-deep); text-decoration: underline; text-underline-offset: 3px;
+            }
+            .asm-today { padding: 8px 16px 0; }
+            .asm-h2 {
+                font-family: 'Cormorant Garamond', serif;
+                font-size: 1.45rem; font-weight: 600; color: var(--charcoal);
+                margin: 22px 16px 12px;
+            }
+            .asm-couples {
+                display: flex; align-items: center; gap: 14px;
+                margin: 0 16px 12px; padding: 14px 16px;
+                border-radius: 14px; border: 0; width: calc(100% - 32px);
+                background: linear-gradient(135deg, var(--terracotta) 0%, var(--terracotta-light) 100%);
+                color: #fff; text-align: left; text-decoration: none;
+                font-family: 'Montserrat', sans-serif;
+            }
+            .asm-couples i { font-size: 1.5rem; opacity: 0.9; }
+            .asm-couples strong { display: block; font-size: 0.98rem; font-weight: 600; }
+            .asm-couples span { font-size: 0.75rem; opacity: 0.92; }
+            .asm-grid {
+                display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+                padding: 0 16px;
+            }
+            .asm-tile {
+                position: relative; display: block;
+                aspect-ratio: 1 / 1; border-radius: 14px; overflow: hidden;
+                background: var(--sage-pale);
+                text-decoration: none; color: #fff;
+            }
+            .asm-tile img { width: 100%; height: 100%; object-fit: cover; display: block; }
+            .asm-tile::after {
+                content: ""; position: absolute; inset: 0;
+                background: linear-gradient(to top, rgba(45, 41, 38, 0.72) 0%, rgba(45, 41, 38, 0) 55%);
+            }
+            .asm-tile .asm-tile-icon {
+                inset: 0; bottom: auto; top: 50%; transform: translateY(-50%);
+                text-align: center; font-size: 2rem; color: var(--sage-deep);
+            }
+            .asm-tile:has(.asm-tile-icon) { background: linear-gradient(135deg, var(--sage-pale), var(--sage-muted)); }
+            .asm-tile span {
+                position: absolute; left: 12px; right: 12px; bottom: 10px; z-index: 1;
+                font-size: 0.88rem; font-weight: 600; line-height: 1.2;
+            }
+            .asm-more {
+                display: block; margin: 12px 16px 0; padding: 14px;
+                border: 1px solid var(--sage-muted); border-radius: 14px;
+                background: transparent; width: calc(100% - 32px);
+                font-family: 'Montserrat', sans-serif;
+                font-size: 0.85rem; font-weight: 500; color: var(--sage-deep); text-align: center;
+            }
+            .asm-actions {
+                display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;
+                padding: 0 16px;
+            }
+            .asm-action {
+                display: flex; flex-direction: column; align-items: center; gap: 6px;
+                padding: 14px 6px; border-radius: 14px; border: 0;
+                background: var(--warm-white); box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+                font-family: 'Montserrat', sans-serif;
+                font-size: 0.75rem; font-weight: 500; color: var(--charcoal); text-decoration: none;
+            }
+            .asm-action i { font-size: 1.15rem; color: var(--terracotta); }
+            .asm-trust {
+                margin: 22px 16px 0; padding: 14px 16px;
+                border-radius: 14px; background: var(--warm-white);
+                font-size: 0.8rem; color: var(--warm-gray); line-height: 1.7;
+            }
+            .asm-trust a { color: inherit; text-decoration: none; }
+            .asm-stars { color: var(--gold); letter-spacing: 1px; margin-right: 4px; }
+            .asm-full {
+                display: block; width: calc(100% - 32px); margin: 22px 16px 0;
+                padding: 14px; border: 0; background: none;
+                font-family: 'Montserrat', sans-serif;
+                font-size: 0.85rem; font-weight: 500; color: var(--warm-gray);
+                text-decoration: underline; text-underline-offset: 3px;
+            }
+            .asm-return {
+                background: var(--sage-deep); text-align: center;
+            }
+            .asm-return button {
+                width: 100%; padding: 10px 16px; border: 0; background: none; color: #fff;
+                font-family: 'Montserrat', sans-serif; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.03em;
+            }
         </style>
+        <script>
+            // Decide quick-book vs full site before first paint (no flash).
+            // ?full=1 / ?quick=1 force a mode; any #anchor deep link shows the full site for that visit.
+            (function () {
+                try {
+                    var q = location.search, h = location.hash;
+                    if (/[?&]full=1/.test(q)) localStorage.setItem('asView', 'full');
+                    if (/[?&]quick=1/.test(q)) localStorage.removeItem('asView');
+                    var phone = window.matchMedia('(max-width: 767px)').matches;
+                    var wantsFull = localStorage.getItem('asView') === 'full';
+                    var deepLink = h && h.length > 1 && h !== '#page-top';
+                    if (phone && !wantsFull && !deepLink) document.documentElement.classList.add('as-m');
+                } catch (e) {}
+            })();
+        </script>
     </head>
 
     <body id="page-top">
+
+        <!-- ===== MOBILE QUICK-BOOK HOME (phones only, see .asm CSS) ===== -->
+        <div id="asMobileHome" class="asm">
+            <div class="asm-top">
+                <img src="assets/img/webp/as_logo.webp" alt="" width="38" height="38">
+                <div class="asm-brand">
+                    <strong>Amber &amp; Sage Spa</strong>
+                    <span>North Chattanooga</span>
+                </div>
+                <a href="#" class="asm-icon-btn as-protected" data-t="tel" data-p="423-250-7243" aria-label="Call Amber &amp; Sage"><i class="fas fa-phone"></i></a>
+            </div>
+
+            <div class="asm-hero">
+                <p class="asm-title">Time for <em>you.</em></p>
+                <p class="asm-status" id="asmStatus"><span class="asm-dot"></span>Open daily &middot; 1202 Hixson Pike</p>
+                <button type="button" class="asm-cta book-btn">Book an appointment</button>
+                <button type="button" class="asm-sublink" data-portal>Already booked? View or change my appointment</button>
+            </div>
+
+            <div class="asm-today">
+                <div data-calendoula-today="banner"></div>
+            </div>
+
+            <p class="asm-h2">What are you in the mood for?</p>
+            <button type="button" class="asm-couples book-btn" data-category="5">
+                <i class="fas fa-heart"></i>
+                <div><strong>Couples massage</strong><span>Side by side, same start time &mdash; choose 2 guests</span></div>
+            </button>
+            <div class="asm-grid">
+                <a href="#" onclick="return false;" class="asm-tile book-btn" data-category="5"><img src="assets/img/services/webp/2.webp" alt="" loading="lazy" width="180" height="180"><span>Massage</span></a>
+                <a href="#" onclick="return false;" class="asm-tile book-btn" data-category="14"><img src="assets/img/services/webp/1.webp" alt="" loading="lazy" width="180" height="180"><span>Facials</span></a>
+                <a href="#" onclick="return false;" class="asm-tile book-btn" data-category="1"><img src="assets/img/services/webp/3.webp" alt="" loading="lazy" width="180" height="180"><span>Waxing</span></a>
+                <a href="#" onclick="return false;" class="asm-tile book-btn" data-category="16"><span class="asm-tile-icon"><i class="fas fa-eye"></i></span><span>Lash &amp; Brow</span></a>
+                <a href="#" onclick="return false;" class="asm-tile book-btn" data-category="13"><img src="assets/img/services/webp/4.webp" alt="" loading="lazy" width="180" height="180"><span>Reiki &amp; Aura</span></a>
+                <a href="#" onclick="return false;" class="asm-tile book-btn" data-category="22"><img src="assets/img/services/webp/5.webp" alt="" loading="lazy" width="180" height="180"><span>Cupping &amp; Stretch</span></a>
+                <a href="#" onclick="return false;" class="asm-tile menu-btn" data-search-term="red light"><img src="assets/img/services/webp/6.webp" alt="" loading="lazy" width="180" height="180"><span>Red Light</span></a>
+                <a href="#" onclick="return false;" class="asm-tile book-btn" data-category="10"><img src="assets/img/services/webp/8.webp" alt="" loading="lazy" width="180" height="180"><span>Sound Bath</span></a>
+            </div>
+            <button type="button" class="asm-more menu-btn">See the full menu &amp; prices</button>
+
+            <p class="asm-h2">Quick links</p>
+            <div class="asm-actions">
+                <button type="button" class="asm-action" data-gift-card><i class="fas fa-gift"></i>Gift cards</button>
+                <a href="#" class="asm-action as-protected" data-t="sms" data-p="423-250-7243"><i class="fas fa-comment-dots"></i>Text us</a>
+                <a href="https://maps.app.goo.gl/nJQpYP1JWsEbEmgj7" class="asm-action"><i class="fas fa-location-dot"></i>Directions</a>
+            </div>
+
+            <div class="asm-trust">
+                <a href="https://www.google.com/search?q=amber+and+sage+spa#lrd=0x88605ffc8b114b0f:0x4a0c674beb7d9af5,1,,,," target="_blank" rel="noopener"><span class="asm-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>5-star Google reviews</a><br>
+                <i class="fas fa-leaf" style="color: var(--sage);"></i> Eminence Organic partner &middot; Organic facials, massage, reiki &amp; more<br>
+                <i class="fas fa-clock" style="color: var(--sage);"></i> Mon&ndash;Sat 9&ndash;7 &middot; Sun 10&ndash;7
+            </div>
+
+            <button type="button" class="asm-full" id="asmFull">View the full website &rarr;</button>
+        </div>
+        <!-- Phones viewing the full site get a way back to quick booking -->
+        <div class="asm-return"><button type="button" id="asmQuick"><i class="fas fa-bolt"></i>&nbsp; Switch to quick booking</button></div>
 
         <!-- Skip to main content (Accessibility) -->
         <a href="#main-content" class="as-skip-link">Skip to main content</a>
@@ -2321,7 +2549,7 @@
                         <a href="#services">Services <i class="fas fa-chevron-down" style="font-size:0.55rem; margin-left:3px; opacity:0.5;"></i></a>
                         <div class="as-nav-dropdown">
                             <a href="#" onclick="return false;" class="book-btn" data-category="14"><i class="fas fa-sparkles"></i> Facials</a>
-                            <a href="#" onclick="return false;" class="book-btn" data-category="15"><i class="fas fa-hand-holding-heart"></i> Massage</a>
+                            <a href="#" onclick="return false;" class="book-btn" data-category="5"><i class="fas fa-hand-holding-heart"></i> Massage</a>
                             <a href="#" onclick="return false;" class="book-btn" data-category="1"><i class="fas fa-eye"></i> Waxing</a>
                             <a href="#" onclick="return false;" class="book-btn" data-category="16"><i class="fas fa-eye"></i> Brows & Lashes</a>
                             <a href="#" onclick="return false;" class="book-btn" data-category="13"><i class="fas fa-yin-yang"></i> Reiki & Energy</a>
@@ -3056,7 +3284,7 @@
 
         <!-- ===== MOBILE STICKY CTA ===== -->
         <div class="as-sticky-mobile">
-            <a href="#" onclick="return false;" class="book-btn"><span>Book Now</span></a>
+            <a href="#" onclick="return false;" class="book-btn as-sticky-book"><span>Book Now</span></a>
             <a href="#" class="as-sticky-text as-protected" data-t="sms" data-p="423-250-7243"><i class="fas fa-comment-dots"></i> Text Us</a>
         </div>
 
@@ -3101,6 +3329,47 @@
             document.querySelectorAll('.as-p-email').forEach(el => {
                 el.textContent = el.dataset.u + '@' + el.dataset.d;
             });
+
+            // Mobile quick-book home: switch views + live open/closed status
+            (function () {
+                const root = document.documentElement;
+                const track = (mode) => { if (window.gtag) gtag('event', 'mobile_view_switch', { view_mode: mode }); };
+                document.getElementById('asmFull')?.addEventListener('click', () => {
+                    try { localStorage.setItem('asView', 'full'); } catch (e) {}
+                    root.classList.remove('as-m');
+                    window.scrollTo(0, 0);
+                    track('full');
+                });
+                document.getElementById('asmQuick')?.addEventListener('click', () => {
+                    try { localStorage.removeItem('asView'); } catch (e) {}
+                    root.classList.add('as-m');
+                    window.scrollTo(0, 0);
+                    track('quick');
+                });
+                if (root.classList.contains('as-m') && window.gtag) gtag('event', 'mobile_quick_home_view');
+
+                // Hours (America/New_York): Mon–Sat 9–19, Sun 10–19
+                const status = document.getElementById('asmStatus');
+                if (!status) return;
+                try {
+                    const parts = new Intl.DateTimeFormat('en-US', { timeZone: 'America/New_York', weekday: 'short', hour: 'numeric', minute: 'numeric', hourCycle: 'h23' }).formatToParts(new Date());
+                    const get = (t) => parts.find(p => p.type === t).value;
+                    const day = get('weekday'), h = Number(get('hour')) + Number(get('minute')) / 60;
+                    const opensAt = (d) => d === 'Sun' ? 10 : 9;
+                    const fmt = (hr) => (hr > 12 ? hr - 12 : hr) + (hr >= 12 ? 'pm' : 'am');
+                    let text, closed = false;
+                    if (h >= opensAt(day) && h < 19) {
+                        text = 'Open now &middot; until 7pm';
+                    } else if (h < opensAt(day)) {
+                        text = 'Opens today at ' + fmt(opensAt(day)) + ' &middot; book online anytime'; closed = true;
+                    } else {
+                        const next = day === 'Sat' ? 'Sun' : 'Mon';
+                        text = 'Opens tomorrow at ' + fmt(opensAt(day === 'Sat' ? 'Sun' : next)) + ' &middot; book online anytime'; closed = true;
+                    }
+                    status.innerHTML = '<span class="asm-dot"></span>' + text;
+                    status.classList.toggle('closed', closed);
+                } catch (e) {}
+            })();
 
             // Navbar + quicklinks scroll
             const nav = document.getElementById('asNav');
