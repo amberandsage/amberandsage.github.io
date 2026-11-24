@@ -2341,7 +2341,11 @@
                 background: var(--charcoal) url('assets/img/webp/header-bg.webp') center / cover;
                 color: #fff;
             }
-            .asm-hero::before { content: ""; position: absolute; inset: 0; background: rgba(45, 41, 38, 0.35); }
+            /* Same smoked sage overlay as the full-site .as-hero::before */
+            .asm-hero::before {
+                content: ""; position: absolute; inset: 0;
+                background: linear-gradient(160deg, rgba(42, 40, 37, 0.72) 0%, rgba(74, 93, 77, 0.50) 40%, rgba(42, 40, 37, 0.62) 100%);
+            }
             .asm-hero .asm-wrap { position: relative; }
             .asm-eyebrow {
                 display: block; margin-bottom: 14px;
