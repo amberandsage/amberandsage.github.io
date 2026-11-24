@@ -2296,21 +2296,18 @@
             .as-promo-cards { max-width: 720px; margin: 0 auto 40px; }
 
             /* ===== CALENDOULA SEARCH (slim, no label) =====
-               Full site: shares the green "full menu" bar. Quick view: thin green strip under the nav. */
-            .as-menu-search {
-                display: flex; align-items: center; justify-content: center;
-                flex-wrap: wrap; gap: 10px 24px; padding: 9px 20px;
-            }
-            .as-search-slim { flex: 0 1 380px; min-width: 0; }
+               Full site: just under the green "full menu" bar. Quick view: under the nav. No band behind either. */
+            .as-search-row { padding: 12px 20px; }
+            .as-search-slim { max-width: 520px; margin: 0 auto; }
             .as-search-slim .pp-ais { margin: 0; }
             .as-search-slim .pp-ais-row,
             .as-search-slim.pp-ais-embed .pp-ais-row,
-            .as-search-slim .pp-ais-embed .pp-ais-row { padding: 3px 3px 3px 14px; box-shadow: none; border-color: transparent; }
+            .as-search-slim .pp-ais-embed .pp-ais-row { padding: 3px 3px 3px 14px; box-shadow: 0 2px 10px rgba(45, 41, 38, 0.06); }
             /* Calendoula grows the box to fit the placeholder; keep it short so it stays one line */
             .as-search-slim .pp-ais-embed textarea.pp-ais-input { padding: 6px 0; font-size: 16px; white-space: nowrap; } /* 16px keeps iPhone from zooming in */
             .as-search-slim .pp-ais-go { padding: 7px 14px; min-width: 0; font-size: 12px; }
             @media (min-width: 768px) { .as-search-slim .pp-ais-embed textarea.pp-ais-input { font-size: 14px; } }
-            .asm-search { background: var(--sage-deep); padding: 8px 20px; }
+            .asm-search { padding: 12px 20px 0; }
             .asm-search .as-search-slim { max-width: 520px; margin: 0 auto; }
 
             /* ===== MOBILE QUICK-BOOK HOME =====
@@ -2327,6 +2324,7 @@
                 html.as-m .as-announcement-warning,
                 html.as-m .as-nav,
                 html.as-m .as-quicklinks,
+                html.as-m .as-search-row,
                 html.as-m #main-content,
                 html.as-m .as-footer,
                 html.as-m .as-back-top { display: none !important; }
@@ -2613,11 +2611,11 @@
             </div>
         </div>
 
-        <!-- Menu button + Calendoula AI search, one slim green bar -->
-        <div class="as-announcement as-menu-search">
+        <div class="as-announcement">
             <button class="as-nav-cta menu-btn"><span>Click Here to Full Our Full Menu & Prices</span></button>
-            <div class="as-search-slim" data-calendoula-search data-label="" data-placeholder="e.g. couples massage Saturday"></div>
         </div>
+        <!-- Calendoula AI search: slim box, no band behind it -->
+        <div class="as-search-row"><div class="as-search-slim" data-calendoula-search data-label="" data-placeholder="e.g. couples massage Saturday"></div></div>
 
         <!-- ===== HERO ===== -->
         <main id="main-content">
