@@ -2292,6 +2292,11 @@
                 transform: translateY(0);
             }
 
+            /* ===== CALENDOULA SEARCH BAR (under nav, full site + quick view) ===== */
+            .as-search-bar { background: var(--cream-dark); border-bottom: 1px solid rgba(0,0,0,0.04); }
+            .as-search-bar > div { max-width: 720px; margin: 0 auto; padding: 12px 20px; }
+            .as-search-bar > div:empty { padding: 0; }
+
             /* ===== MOBILE QUICK-BOOK HOME =====
                Phones (portrait <768px, or landscape touch screens <=500px tall) see a
                booking-first screen styled like the full site; the full site is still in
@@ -2430,6 +2435,10 @@
 
     <body id="page-top">
 
+        <!-- Calendoula welcome-back banner: only renders for returning clients this device recognizes.
+             Sits above both the mobile quick view and the full site (Calendoula uses only the first one on a page). -->
+        <div data-calendoula-welcome></div>
+
         <!-- ===== MOBILE QUICK-BOOK HOME (phones only, see .asm CSS) ===== -->
         <div id="asMobileHome" class="asm">
             <div class="asm-nav">
@@ -2439,6 +2448,7 @@
                     <button type="button" class="asm-nav-link asm-go-full">Full site &rarr;</button>
                 </div>
             </div>
+            <div class="as-search-bar"><div data-calendoula-search></div></div>
 
             <div class="asm-hero">
                 <div class="asm-wrap">
@@ -2573,6 +2583,9 @@
                 <a href="#" data-calendoula-form-button="ertZYf">Planning a party or event?</a>
             </div>
         </div>
+
+        <!-- Calendoula AI search ("Describe what you're looking for") -->
+        <div class="as-search-bar"><div data-calendoula-search></div></div>
 
         <div class="as-announcement">
             <button class="as-nav-cta menu-btn"><span>Click Here to Full Our Full Menu & Prices<span></button>
