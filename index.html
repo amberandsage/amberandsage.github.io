@@ -2421,12 +2421,13 @@
                 margin-left: auto; margin-right: 14px; padding: 8px 0;
                 background: none; border: 0; cursor: pointer;
                 font-family: 'Montserrat', sans-serif;
-                font-size: 0.6rem; font-weight: 600; letter-spacing: 1.2px; text-transform: uppercase;
+                font-size: 0.62rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
                 color: var(--sage-deep); white-space: nowrap;
             }
-            /* keep the logo name on one line when the Quick book link shares the nav */
+            /* keep the logo name on one line when the Mobile site link shares the nav */
             .as-nav-logo span { white-space: nowrap; }
             @media (max-width: 400px) { .as-nav-logo span { font-size: 1.2rem; } .as-nav-logo img { height: 40px; } }
+            @media (max-width: 360px) { .as-nav-quick { letter-spacing: 1px; margin-right: 10px; margin-left: 10px; } .as-nav-logo span { font-size: 1.05rem; } }
         </style>
         <script>
             // Decide quick-book vs full site before first paint (no flash).
@@ -2585,7 +2586,7 @@
                     <li><button class="as-nav-cta book-btn"><span>Book Now</span></button></li>
                 </ul>
                 <!-- Phones on the full site: way back to the quick view (mirrors "Full site →" there) -->
-                <button type="button" class="as-nav-quick" id="asmQuick">Quick book &rarr;</button>
+                <button type="button" class="as-nav-quick" id="asmQuick">Mobile site &rarr;</button>
                 <button class="as-nav-toggle" id="asNavToggle" aria-label="Toggle menu">
                     <span></span>
                     <span></span>
