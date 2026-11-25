@@ -1967,10 +1967,6 @@
                 font-size: 0.82rem;
                 line-height: 1.8;
             }
-            .as-hours-list .as-hours-today {
-                font-weight: 600;
-                color: var(--sage-deep);
-            }
 
             /* ===== BACK TO TOP ===== */
             .as-back-top {
@@ -2372,12 +2368,11 @@
             }
             .asm-h1 em { font-style: italic; color: var(--terracotta-light); }
             .asm-status { font-size: 0.78rem; letter-spacing: 0.04em; color: rgba(250, 247, 242, 0.85); margin-bottom: 22px; }
-            .asm-dot {
-                display: inline-block; width: 8px; height: 8px; border-radius: 50%;
-                background: var(--sage-muted); margin-right: 6px; vertical-align: 1px;
-                box-shadow: 0 0 0 3px rgba(168, 184, 154, 0.25);
-            }
-            .asm-status.closed .asm-dot { background: var(--light-gray); box-shadow: none; }
+            .asm-hours { margin-top: 10px; }
+            /* Calendoula hours: keep the site's own sizes over the widget defaults */
+            .asm-status.pp-hours { font-size: 0.78rem; color: rgba(250, 247, 242, 0.85); }
+            .asm-info .asm-hours.pp-hours { font-size: inherit; color: inherit; }
+            .as-location-item .as-hours-list.pp-hours { font-size: 0.82rem; line-height: 1.8; }
             .asm-hero .as-btn-primary { width: 100%; justify-content: center; padding: 18px 20px; }
             .asm-hero-row { display: flex; gap: 10px; margin-top: 10px; }
             .asm-hero-row .as-btn-secondary { flex: 1; justify-content: center; padding: 14px 10px; font-size: 0.68rem; }
@@ -2467,7 +2462,7 @@
                     <div class="asm-search"><div class="as-search-hero" data-calendoula-search></div></div>
                     <span class="asm-eyebrow">Chattanooga's Holistic Day Spa</span>
                     <p class="asm-h1">Where Stillness<br>Meets <em>Restoration</em></p>
-                    <p class="asm-status" id="asmStatus"><span class="asm-dot"></span>Open daily &middot; 1202 Hixson Pike</p>
+                    <div class="asm-status" data-calendoula-hours></div>
                     <button type="button" class="as-btn-primary book-btn"><span>Book Your Escape</span></button>
                     <div class="asm-hero-row">
                         <a href="#" class="as-btn-secondary as-protected" data-t="tel" data-p="423-250-7243"><i class="fas fa-phone"></i> Call</a>
@@ -2516,8 +2511,8 @@
                     </div>
                     <div class="asm-info">
                         <a href="https://www.google.com/search?q=amber+and+sage+spa#lrd=0x88605ffc8b114b0f:0x4a0c674beb7d9af5,1,,,," target="_blank" rel="noopener" style="border: 0;"><span class="asm-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>5-Star Google Reviews</a><br>
-                        <a href="https://maps.app.goo.gl/nJQpYP1JWsEbEmgj7">1202 Hixson Pike, Chattanooga</a><br>
-                        Mon&ndash;Sat 9&ndash;7 &middot; Sun 10&ndash;7
+                        <a href="https://maps.app.goo.gl/nJQpYP1JWsEbEmgj7">1202 Hixson Pike, Chattanooga</a>
+                        <div class="asm-hours" data-calendoula-hours="block" data-title="" data-note="By appointment only"></div>
                     </div>
                     <button type="button" class="asm-full asm-go-full">View the full website &rarr;</button>
                 </div>
@@ -3263,11 +3258,7 @@
                     <div class="as-location-item">
                         <div class="as-location-icon"><i class="fas fa-clock"></i></div>
                         <h4>Hours</h4>
-                        <ul class="as-hours-list" id="asHours">
-                            <li>Mon&ndash;Sat: 9–7pm*</li>
-                            <li>Sun: 10–7pm*</li>
-                        </ul>
-                        <p style="font-size: 0.7rem; color: var(--warm-gray); margin-top: 4px; font-style: italic;">*By appointment only</p>
+                        <div class="as-hours-list" data-calendoula-hours="block" data-title="" data-note="By appointment only"></div>
                     </div>
                 </div>
                 <div class="as-map-wrap as-reveal">
@@ -3381,27 +3372,6 @@
                 });
                 if (root.classList.contains('as-m') && window.gtag) gtag('event', 'mobile_quick_home_view');
 
-                // Hours (America/New_York): Mon–Sat 9–19, Sun 10–19
-                const status = document.getElementById('asmStatus');
-                if (!status) return;
-                try {
-                    const parts = new Intl.DateTimeFormat('en-US', { timeZone: 'America/New_York', weekday: 'short', hour: 'numeric', minute: 'numeric', hourCycle: 'h23' }).formatToParts(new Date());
-                    const get = (t) => parts.find(p => p.type === t).value;
-                    const day = get('weekday'), h = Number(get('hour')) + Number(get('minute')) / 60;
-                    const opensAt = (d) => d === 'Sun' ? 10 : 9;
-                    const fmt = (hr) => (hr > 12 ? hr - 12 : hr) + (hr >= 12 ? 'pm' : 'am');
-                    let text, closed = false;
-                    if (h >= opensAt(day) && h < 19) {
-                        text = 'Open now &middot; until 7pm';
-                    } else if (h < opensAt(day)) {
-                        text = 'Opens today at ' + fmt(opensAt(day)) + ' &middot; book online anytime'; closed = true;
-                    } else {
-                        const next = day === 'Sat' ? 'Sun' : 'Mon';
-                        text = 'Opens tomorrow at ' + fmt(opensAt(day === 'Sat' ? 'Sun' : next)) + ' &middot; book online anytime'; closed = true;
-                    }
-                    status.innerHTML = '<span class="asm-dot"></span>' + text;
-                    status.classList.toggle('closed', closed);
-                } catch (e) {}
             })();
 
             // Navbar + quicklinks scroll
@@ -3522,15 +3492,6 @@
             backTop.addEventListener('click', () => {
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             });
-
-            // Highlight today's hours
-            const dayIndex = new Date().getDay(); // 0=Sun
-            const hoursList = document.getElementById('asHours');
-            if (hoursList) {
-                const items = hoursList.querySelectorAll('li');
-                if (dayIndex === 0) items[1].classList.add('as-hours-today');
-                else items[0].classList.add('as-hours-today');
-            }
 
             // Promo modal + carousel
             // Skip when the promo modal markup is commented out, so the scripts below still run
