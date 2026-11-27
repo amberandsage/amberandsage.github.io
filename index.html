@@ -2378,6 +2378,21 @@
             .asm-h1 em { font-style: italic; color: var(--terracotta-light); }
             .asm-status { font-size: 0.78rem; letter-spacing: 0.04em; color: rgba(250, 247, 242, 0.85); margin-bottom: 22px; }
             .asm-hours { margin-top: 10px; }
+            /* Holiday promo bar */
+            .as-holiday-bar {
+                display: block; text-align: center; padding: 11px 16px;
+                background: var(--terracotta); color: #fff; text-decoration: none;
+                font-family: 'Montserrat', sans-serif; font-size: 0.72rem; font-weight: 600;
+                letter-spacing: 2px; text-transform: uppercase;
+            }
+            .as-holiday-bar:hover { background: var(--sage-deep); color: #fff; }
+            .as-holiday-bar .fa-gift { margin-right: 6px; }
+            .as-promo-embed { margin-bottom: 24px; }
+            .as-promo-embed:empty { display: none; }
+            .as-hero-status.pp-hours {
+                font-size: 0.85rem; letter-spacing: 0.04em; color: rgba(250, 247, 242, 0.85);
+                margin: -8px 0 22px; opacity: 0; animation: fadeUp 1s 0.6s forwards;
+            }
             /* Calendoula hours: keep the site's own sizes over the widget defaults */
             .asm-status.pp-hours { font-size: 0.78rem; color: rgba(250, 247, 242, 0.85); }
             .asm-info .asm-hours.pp-hours { font-size: inherit; color: inherit; }
@@ -2457,6 +2472,9 @@
              Sits above both the mobile quick view and the full site (Calendoula uses only the first one on a page). -->
         <div data-calendoula-welcome></div>
 
+        <!-- Holiday promo bar (both views): opens the Calendoula promo pop-up. Remove after the holidays. -->
+        <a href="#" onclick="return false;" class="as-holiday-bar" data-calendoula-promo-button="pra20471cc"><i class="fas fa-gift"></i> Holiday Gift Card Sale <span>&rarr;</span></a>
+
         <!-- ===== MOBILE QUICK-BOOK HOME (phones only, see .asm CSS) ===== -->
         <div id="asMobileHome" class="asm">
             <div class="asm-nav">
@@ -2505,6 +2523,7 @@
                         <p class="asm-title">Don't Miss This</p>
                         <div class="as-line"></div>
                     </div>
+                    <div class="as-promo-embed" data-calendoula-promo="pra20471cc"></div>
                     <div data-calendoula-cards data-size="lg">
                       <div data-calendoula-card data-bundle="3"></div>
                     </div>
@@ -2633,6 +2652,7 @@
             <div class="as-hero-content">
                 <span class="as-hero-eyebrow">Chattanooga's Holistic Day Spa</span>
                 <h1>Where Stillness<br>Meets <em>Restoration</em></h1>
+                <div class="as-hero-status" data-calendoula-hours></div>
                 <p class="as-hero-sub">Organic facials. Therapeutic massage. Reiki. Yoga. Sound healing. All in one beautifully intentional space.</p>
                 <div class="as-hero-actions">
                     <button class="as-btn-primary book-btn"><span>Book Your Escape</span></button>
@@ -2715,6 +2735,7 @@
                 </div> -->
 
                 <div class="as-promo-cards">
+                    <div class="as-promo-embed" data-calendoula-promo="pra20471cc"></div>
                     <div data-calendoula-cards data-size="lg">
                       <div data-calendoula-card data-bundle="3"></div>
                     </div>
